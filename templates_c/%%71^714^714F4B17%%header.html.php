@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2010-04-18 12:21:36
+<?php /* Smarty version 2.6.26, created on 2010-04-18 13:22:25
          compiled from header.html */ ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -11,7 +11,7 @@
   <!-- Stylesheets, javascripts -->
   <link rel="stylesheet" href="/static/style.css" type="text/css" media="screen" title="bugbase stylesheet" charset="utf-8" />
   <script src="static/scripts/jquery-1.3.2.min.js" type="text/javascript" language="javascript" charset="utf-8"></script>
-  <script src="/static/scripts/bugbase.js" type="text/javascript" language="javascript" charset="utf-8" />
+  <script src="/static/scripts/bugbase.js" type="text/javascript" language="javascript" charset="utf-8" ></script>
   
   <!--[if IE 6]>
     <script src="static/scripts/DD_belatedPNG_0.0.8a-min.js"></script>

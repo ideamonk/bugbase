@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2010-04-18 12:21:36
+<?php /* Smarty version 2.6.26, created on 2010-04-18 13:12:18
          compiled from login.html */ ?>
   <div id='leftBox'>
     <div class='boxContent'>
@@ -17,11 +17,15 @@
   <div id='rightBox'>
     <div class='boxContent'>
       <h3>Login</h3>
-      <form id='loginForm' method='post'>
+      <form id='loginForm' method='post' action='/index.php?page=confirm'>
         <label for='username'>Username: </label>
         <input type='text' name='username' />
         <label for='password'>Password: </label>
         <input type='password' name='password'/>
+        <?php if (isset ( $this->_tpl_vars['login_error'] )): ?>
+			<div class='errorflash'> <?php echo $this->_tpl_vars['login_error']; ?>
+ </div>
+        <?php endif; ?>
         <button type='submit'> Login </button>
         <span>
           <a href='/index.php?page=register' title="Don't have an account? Just create one.">Register new account</a> |

@@ -15,11 +15,14 @@
   <div id='rightBox'>
     <div class='boxContent'>
       <h3>Login</h3>
-      <form id='loginForm' method='post'>
+      <form id='loginForm' method='post' action='/index.php?page=confirm'>
         <label for='username'>Username: </label>
         <input type='text' name='username' />
         <label for='password'>Password: </label>
         <input type='password' name='password'/>
+        { if isset($login_error) }
+			<div class='errorflash'> { $login_error } </div>
+        { /if }
         <button type='submit'> Login </button>
         <span>
           <a href='/index.php?page=register' title="Don't have an account? Just create one.">Register new account</a> |
