@@ -50,6 +50,13 @@ switch ($page){
 			$smarty->assign('subtitle','Add new bug');
 		}
 		break;
+	
+	case 'list':
+		if (loggedIn()){
+			$template = 'buglist.html';
+			$smarty->assign('subtitle','bug list');
+		}
+		break;
 }
 
 session_to_smarty($smarty);							// move all session data to be available in views

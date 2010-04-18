@@ -11,7 +11,9 @@ $(document).ready( function(){
 	var h1=$('#leftBox .boxContent').height();
 	var h2=$('#rightBox').height();
 	var maxHeight = (h1>h2 ? h1:h2) + 40;
-	$('#contentSpacer').css('height',maxHeight.toString() + 'px');
+	if (maxHeight > 100){
+		$('#contentSpacer').css('height',maxHeight.toString() + 'px');
+	}
 	
 } );
 

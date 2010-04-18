@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2010-04-18 19:52:32
+<?php /* Smarty version 2.6.26, created on 2010-04-19 00:20:37
          compiled from home.html */ ?>
 <div id='contentSpacer'>
     <div id='leftBox'>
@@ -8,7 +8,7 @@
  </a> !
             </h3>
             <p class='userOpen'>
-                You have <a href='#'>34</a> open bugs assigned to you.
+                You have <a href='/index.php?page=list&filter=self'>34</a> open bugs assigned to you.
             </p>
             <p class='userClose'>
                 So far, you have fixed <a href='#'>12</a> bugs.
