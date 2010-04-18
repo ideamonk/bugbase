@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2010-04-18 17:15:26
+<?php /* Smarty version 2.6.26, created on 2010-04-18 17:44:53
          compiled from home.html */ ?>
 <div id='contentSpacer'>
 	<div id='leftBox'>
@@ -18,6 +18,11 @@
 		</div>
 	</div>
 	<div id='rightBox'>
-		foo
+		<div class='welcomeReport'>
+			<h2>Activity</h2>
+			<p class='activityBox'>
+				foo bar bap
+			</p>
+		</div>
 	</div>
 </div>

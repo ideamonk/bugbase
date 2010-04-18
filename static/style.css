@@ -6,6 +6,8 @@
   
 pre,code{font:12px Monaco,"Courier New","DejaVu Sans Mono","Bitstream Vera Sans Mono",monospace;}
 img { border: 0px; }
+a { color:blue; }
+a:visited { color:blue; }
 
 body {
   text-align:center;  /* to fix IE6 overrides */
@@ -131,12 +133,15 @@ body {
 .welcomeReport p.userOpen{
 	background: #FCF0AE;
 }
+.welcomeReport p.activityBox{
+	background: #B2E4FF;
+}
 
 /* Reusable components */
 .rounded {
 	/* rounded css3 from bakabot */
 	background-color: #f4f4f4;
-	background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#ffffff), color-stop(0.2, #f4f4f4), color-stop(0.3, #eee), color-stop(0.7, #ddd));
+	background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#ffffff), color-stop(0.2, #f4f4f4), color-stop(0.3, #f2f2f2), color-stop(0.7, #f2f2f2));
 	color:#333;
 	border-radius:5px;
 	-moz-border-radius:10px;
