@@ -1,0 +1,39 @@
+        <div class="canvas">
+            <a href="#" id="menu_brand"><img src="static/images/{$pbrand}.png" title="Prisma" id="prisma_menu"/></a>
+            <div class='plain_clear'>
+            <center>
+                <img src="static/images/katso.png" alt="KLIKKAA RISTORANTE-SUOSIKKIA
+OMAN KAUPPASI PIZZAMENUSTA" style='margin-top:-10px;'/>
+            </center>
+            <br/>
+            <div class='cp_left'>
+                <div class='coupon'>
+                    <p class='cpno'>{$cpno}</p>
+                    <p class='cprod' style='background: url(static/coupons/{$uprod}.png) no-repeat;'>
+                    </p>
+                    <p class='pizzname'>
+                        {$prodname}
+                    </p>
+                    {if $chances > 0}
+                        <form id='eanform' action="?page=decide" method="post">
+                            <input type='text' value='' name='EAN' class='ean'/>
+                            <input type='hidden' value='{$uprod}' name='prod' />
+                            <input type='hidden' value='{$uid}' name='uid' />
+                            <input type='hidden' value='ninv' name='frm' />
+                            <a href="javascript:$('#eanform').submit()">
+                                <img src='static/images/tarkista.png' alt='tarkista'/>
+                            </a>
+                        </form>
+                    {else}
+                        <div class='red_result'>
+                        <p>
+                            <span style='font-size:16px;'>
+                                Sinulla on 0 osallistumista jäljellä, koska olet osallistunut 100 kertaa.
+                            </span>
+                        </p>
+                    </div>
+                    {/if}
+                </div>
+            </div>
+
+        </div>

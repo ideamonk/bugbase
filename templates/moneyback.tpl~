@@ -1,0 +1,64 @@
+        <div class="canvas">
+            <a href="?page=thanks_rating" style="position:absolute;margin-left:395px;margin-top:508px;display:block;"><img src="static/images/ohita.png" title="" id=""/></a>
+            
+            <a href="#" id="brand_logo"><img src="static/images/{$storename}.png" title="Prisma" id="prisma_menu"/></a>
+
+            <div class='mb_confirm'>
+                <div class='mb_dialog'>
+                    <p>
+                    HUOM! Tarkista, että <br/>tilitiedoissasi ei ole virhettä.<br/>Et voi korjata tilitietojasi<br/>sen jälkeen kun olet painanut<br/>hyväksy-nappia
+                    </p>
+                    <br/>
+                    <a href="javascript:take_back()" onclick="">
+                        <img src="static/images/mb_muokkaa.jpg" alt="MUOKKAA"/>
+                    </a>
+                    <a href="javascript:feedback_validate()">
+                        <img src="static/images/mb_hyvaksy.jpg" alt="HYVÄKSY"/>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="plain">
+                <div style="text-align:center;padding:5px 15px 5px 15px;">
+                    <img src="static/images/moneyback_title.jpg"/>
+                </div>
+                <div id="cerror"></div>
+                <div id="mbform">
+                    <div id='name'>Nimi: <input type='text' id='nimi'/> <span>&nbsp;</span></div>
+                    <div id='addr'>Osoite: <input type='text' id='osoite' /> <span>&nbsp;</span></div>
+                    <div id='zip'>Postinumero: <input type='text' id='postinumero'/> <span>&nbsp;</span></div>
+                    <div id='city'>Kaupunki: <input type='text' id='kaupunki'/> <span>&nbsp;</span></div>
+                    <div id='phone'>Puhelinnumero: <input type='text' id='puhelin'/> <span>&nbsp;</span></div>
+                    <div id='email'>Sähköpostiosoite: <input type='text' id='sahko'/> <span>&nbsp;</span></div>
+                    <div id='bank'>Pankki ja konttori: <input type='text' id='paankki' /> <span>&nbsp;</span></div>
+                    <div id='account'>Tilinumero: <input type='text' id='tilinumero' /> <span>&nbsp;</span></div>
+                </div>
+                <div style="text-align:center; font-size:14px;padding:2px;">
+                        Perustelu, vähintään 17 sanaa
+                </div>
+                <div style="text-align:center; font-size:13px;padding:5px;">
+                    <form id="feedback" action="?page=store_feedback" method="post">
+                        <input type='hidden' id='pname' name='pname'/>
+                        <input type='hidden' id='paddr' name='paddr'/>
+                        <input type='hidden' id='pzip' name='pzip'/>
+                        <input type='hidden' id='pcity' name='pcity'/>
+                        <input type='hidden' id='pphone' name='pphone'/>
+                        <input type='hidden' id='pemail' name='pemail'/>
+                        <input type='hidden' id='pbrand' name='pbrand' value='{$brand}'/>
+                        <input type='hidden' id='pbank' name='pbank'/>
+                        <input type='hidden' id='pacct' name='pacct'/>
+                        <input type='hidden' id='pprint' name='pprint'/>
+                        <textarea class='mbtext' name='mbtext'></textarea>
+                    </form>
+                </div>
+                <div style="text-align:center;">
+                    <a href="javascript:show_confirm(0)">
+                        <img src="static/images/mb_minulla.jpg" alt="MINULLA EI OLE Tulostinta" title="MINULLA EI OLE
+Tulostinta"/>
+                    </a>
+                    <a href="javascript:show_confirm(1)">
+                        <img src="static/images/mb_tulosta.jpg" alt="TULOSTA" title="TULOSTA"/>
+                    </a>
+                </div>
+            </div>
+        </div>

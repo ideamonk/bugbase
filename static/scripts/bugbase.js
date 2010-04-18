@@ -1,0 +1,3 @@
+/*
+  Default globally applicable js code for bugbase
+*/

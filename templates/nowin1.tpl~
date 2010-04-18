@@ -1,0 +1,54 @@
+        <div class="canvas">
+        <!--
+            <a href="#" id="menu_brand"><img src="static/images/{$pbrand}.png" title="Prisma" id="prisma_menu"/></a>
+        -->
+            <a href="{$buturl}" id="arpa_content"><img src="{$butimg}" title=""/></a>
+            <a href="#" id="brand_logo"><img src="static/images/{$pbrand}.png" title="" id="prisma_menu"/></a>
+            
+            <div class='plain_clear'>
+            <center>
+                <img src="static/images/katso.png" alt="KLIKKAA RISTORANTE-SUOSIKKIA
+OMAN KAUPPASI PIZZAMENUSTA" style='margin-top:-10px;'/>
+            </center>
+            <br/>
+            <div class='cp_left'>
+                <div class='coupon'>
+                    <p class='cpno'>{$cpno}</p>
+                    <p class='cprod' style='background: url(static/coupons/{$uprod}.png) no-repeat;'>
+                    </p>
+                    <center style='color:#034EA2; font-size:12px;'>{$prodname}</center>
+                    <div class='red_result'>
+                        <p>
+                            <span style='font-size:16px;'>
+                                {$verdict}
+                            </span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class='cp_right'>
+                { if $ichances < 1 }
+                    <div class='ribbon'>&nbsp;
+                    </div>
+                {/if}
+                <div class='coupon'>
+                    <p class='cpno'>{$cpno}</p>
+                    <p class='cprod' style='background: url(static/coupons/{$uprod}.png) no-repeat;'>
+                    </p>
+                    <p class='pizzname'>
+                        {$prodname}
+                    </p>
+                    <form id='eanform2' action="?page=decide" method="post">
+                        {if $ichances >= 1}
+                        <input type='text' value='' name='EAN' class='ean'/>
+                        <input type='hidden' value='{$uprod}' name='prod' />
+                        <input type='hidden' value='{$uid}' name='uid' />
+                        <input type='hidden' value='inv' name='frm' />
+                        <a href="javascript:$('#eanform2').submit()">
+                            <img src='static/images/tarkista.png' alt='tarkista'/>
+                        </a>
+                        {/if}
+                    </form>
+                </div>
+            </div>
