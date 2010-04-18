@@ -79,6 +79,8 @@ body {
 	background:#efefef;
 	background: -webkit-gradient(linear, left top, left bottom, from(#dbe1ed), to(#ffffff));
 	border-radius:15px;
+	-moz-border-radius:15px;
+	-webkit-border-radius:15px;
 }
 
 #welcome h3{
@@ -91,6 +93,7 @@ body {
   padding:10px;
   background: #ebf1fd;
   border-radius:15px;
+  -moz-border-radius:15px;
   margin-bottom:10px;
 }
 #loginForm { padding:10px;}
@@ -116,9 +119,10 @@ body {
 .bigName {
 	font-size:1.4em;
 }
-.welcomeReport p{
-	background: #CBFFAF;
+.welcomeReport p, .welcomeReport div{
+	background: #dddddd;
 	border-radius:10px;
+	-moz-border-radius:10px;
 	padding:10px;
 	margin:5px;
 }
@@ -130,12 +134,16 @@ body {
 .welcomeReport p a:visited {
 	color:#000;
 	}
-.welcomeReport p.userOpen{
+.welcomeReport .userOpen{
 	background: #FCF0AE;
 }
-.welcomeReport p.activityBox{
+.welcomeReport .userClose{
+	background: #CBFFAF;
+}
+.welcomeReport .activityBox{
 	background: #B2E4FF;
 }
+.welcomeReport ul li{ margin-left:40px; }
 
 /* Reusable components */
 .rounded {
@@ -144,7 +152,7 @@ body {
 	background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#ffffff), color-stop(0.2, #f4f4f4), color-stop(0.3, #f2f2f2), color-stop(0.7, #f2f2f2));
 	color:#333;
 	border-radius:5px;
-	-moz-border-radius:10px;
+	-moz-border-radius:5px;
 	padding:5px 15px;
 	margin:5px 5px -5px 5px;
 	font-size:1.0em;
@@ -154,6 +162,7 @@ body {
 }
 
 .rounded:hover {
+	background-color: #999;
 	background: -webkit-gradient(linear, left top, left bottom, from(#999), to(#999), color-stop(0.2, #aaa), color-stop(0.3, #aaa), color-stop(0.7, #aaa));
 }
 
@@ -161,5 +170,6 @@ body {
 	margin-top:20px;
 	background:#ffffff;
 	-webkit-box-shadow:1px 1px 5px #ccc;
+	-moz-box-shadow:1px 1px 5px #ccc;
 	padding:30px;
 }

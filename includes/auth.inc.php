@@ -32,7 +32,10 @@ function checkLogin(){
 
 function loggedIn(){
 	// returns the boolean state if the user is logged in or not
-	return ($_SESSION['access'] == 'granted');
+	if (isset($_SESSION['access']))
+		return ($_SESSION['access'] == 'granted');
+	else
+		return false;
 }
 
 function logout(){
