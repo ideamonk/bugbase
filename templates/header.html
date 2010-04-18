@@ -29,7 +29,9 @@
 <div id='wrapper'>
   <div id='headarea'>
     <div id='topmenu'>
-      <a href='#'>ideamonk</a> | <a href='#'>logout</a>
+		{ if isset($user_id) }
+		<a href='#'>{$user_name}</a> | <a href='/index.php?page=logout'>logout</a>
+		{ /if }
     </div>
     <div id='headcontent'>
       

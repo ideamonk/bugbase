@@ -11,4 +11,11 @@ function stop_sql_injection(){
 		$_GET[$key] = mysql_real_escape_string($value);
 	}
 }
+
+function session_to_smarty(&$smarty){
+	// moves all session variables to smarty for availability in views
+	foreach ($_SESSION as $key => $value) {
+		$smarty->assign($key, $value);
+	}
+}
 ?>

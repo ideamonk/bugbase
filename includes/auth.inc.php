@@ -20,7 +20,7 @@ function checkLogin(){
 
 	$result = mysql_query($query);
 
-	if ($row = mysql_fetch_row($result)){
+	if ($row = mysql_fetch_assoc($result)){
 		// successful login
 		$_SESSION['access'] = 'granted';
 		// store some data in session to avoid redundant queries
@@ -35,4 +35,7 @@ function loggedIn(){
 	return ($_SESSION['access'] == 'granted');
 }
 
+function logout(){
+	resetSession();
+}
 ?>

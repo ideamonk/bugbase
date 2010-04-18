@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2010-04-18 13:22:25
+<?php /* Smarty version 2.6.26, created on 2010-04-18 15:38:42
          compiled from header.html */ ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -56,7 +56,10 @@ $this->_sections['i']['last']       = ($this->_sections['i']['iteration'] == $th
 <div id='wrapper'>
   <div id='headarea'>
     <div id='topmenu'>
-      <a href='#'>ideamonk</a> | <a href='#'>logout</a>
+		<?php if (isset ( $this->_tpl_vars['user_id'] )): ?>
+		<a href='#'><?php echo $this->_tpl_vars['user_name']; ?>
+</a> | <a href='/index.php?page=logout'>logout</a>
+		<?php endif; ?>
     </div>
     <div id='headcontent'>
       
