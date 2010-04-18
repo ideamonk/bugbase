@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2010-04-18 15:38:42
+<?php /* Smarty version 2.6.26, created on 2010-04-18 16:59:45
          compiled from header.html */ ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -57,12 +57,37 @@ $this->_sections['i']['last']       = ($this->_sections['i']['iteration'] == $th
   <div id='headarea'>
     <div id='topmenu'>
 		<?php if (isset ( $this->_tpl_vars['user_id'] )): ?>
-		<a href='#'><?php echo $this->_tpl_vars['user_name']; ?>
+			<small>logged in as </small>
+			<strong>
+				<a href='#'><?php echo $this->_tpl_vars['user_name']; ?>
 </a> | <a href='/index.php?page=logout'>logout</a>
+			</strong>
 		<?php endif; ?>
     </div>
     <div id='headcontent'>
-      
+      <?php if (isset ( $this->_tpl_vars['user_id'] )): ?>
+		<div class='baseLogo'>
+			<a href='/'>
+				<img src='/static/images/bugbase_small.png' alt='Bugbase - home' />
+			</a>
+		</div>
+		<div class='mainMenu'>
+			<ul>
+				<li class='rounded'>
+					<a href='/'>Home</a>
+				</li>
+				<li class='rounded'>
+					<a href='/'>Projects</a>
+				</li>
+				<li class='rounded'>
+					<a href='/'>My Bugs</a>
+				</li>
+				<li class='rounded'>
+					<a href='/'>Report a Bug</a>
+				</li>
+			</ul>		
+		</div>
+      <?php endif; ?>
     </div>
   </div>
   <!-- end of #headarea -->

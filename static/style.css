@@ -3,15 +3,15 @@
   padding:0px;
   text-decoration:none;
   }
+  
 pre,code{font:12px Monaco,"Courier New","DejaVu Sans Mono","Bitstream Vera Sans Mono",monospace;}
 img { border: 0px; }
-
-
 
 body {
   text-align:center;  /* to fix IE6 overrides */
   font-size:12px;
   font-family: helvetica,arial,freesans,clean,sans-serif;
+  background-color: #dbe1ed;
   }
 
 #wrapper {
@@ -24,13 +24,35 @@ body {
   text-align:right;
   font-size:1em;
   padding-right:10px;
-  font-weight:bold;
+  padding-top:5px;
 }
 
+/* header */
 #headarea {
-  height:30px;
+  min-height:40px;
 }
 
+#headcontent{
+}
+
+.baseLogo {
+	display:inline-block;
+}
+
+.mainMenu{
+	text-align:center;
+	width:80%;
+	display:inline-block;
+}
+
+.mainMenu ul li { 
+	list-style:none; 
+	display:inline-block; 
+}
+.mainMenu ul li a { color:#444; }
+.mainMenu ul li a:hover { color:#fff; }
+
+/* other layout structures */
 #content { min-height:400px; margin:0px auto; width:98%;}
 
 #footer { color:#aaaaaa; text-align:center; }
@@ -47,15 +69,27 @@ body {
   width:48%;
   display:inline-block;
 }
-#rightBox{ float:right; background:#dddddd; }
-#rightBox .boxContent {background:#efefef; }
+#rightBox{ 
+	float:right; 
+
+	}
+#rightBox .boxContent {
+	background:#efefef;
+	background: -webkit-gradient(linear, left top, left bottom, from(#dbe1ed), to(#ffffff));
+	border-radius:15px;
+}
 
 #welcome h3{
   text-align:center;
   margin-top:5px;
+  margin-bottom:10px;
+  
 }
 #welcome p {
   padding:10px;
+  background: #ebf1fd;
+  border-radius:15px;
+  margin-bottom:10px;
 }
 #loginForm { padding:10px;}
 #loginForm label { display:block; clear:both; }
@@ -71,3 +105,56 @@ body {
 	font-weight:bold;
 	display:none;
 	}
+
+/* Home page */
+.welcomeReport {
+	text-align:left;
+	font-size:1.2em;
+	}
+.bigName {
+	font-size:1.4em;
+}
+.welcomeReport p{
+	background: #CBFFAF;
+	border-radius:10px;
+	padding:10px;
+	margin:5px;
+}
+.welcomeReport p a {
+	font-size:1.5em;
+	font-weight:bold;
+	border-bottom:1px #444 dotted;
+}
+.welcomeReport p a:visited {
+	color:#000;
+	}
+.welcomeReport p.userOpen{
+	background: #FCF0AE;
+}
+
+/* Reusable components */
+.rounded {
+	/* rounded css3 from bakabot */
+	background-color: #f4f4f4;
+	background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#ffffff), color-stop(0.2, #f4f4f4), color-stop(0.3, #eee), color-stop(0.7, #ddd));
+	color:#333;
+	border-radius:5px;
+	-moz-border-radius:10px;
+	padding:5px 15px;
+	margin:5px 5px -5px 5px;
+	font-size:1.0em;
+	-webkit-box-shadow: 1px 1px 5px #aaa;
+	-moz-box-shadow: 1px 1px 5px #aaa;
+	overflow:hidden;
+}
+
+.rounded:hover {
+	background: -webkit-gradient(linear, left top, left bottom, from(#999), to(#999), color-stop(0.2, #aaa), color-stop(0.3, #aaa), color-stop(0.7, #aaa));
+}
+
+#contentSpacer {
+	margin-top:20px;
+	background:#ffffff;
+	-webkit-box-shadow:1px 1px 5px #ccc;
+	padding:30px;
+}

@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2010-04-18 13:12:18
+<?php /* Smarty version 2.6.26, created on 2010-04-18 16:41:44
          compiled from login.html */ ?>
   <div id='leftBox'>
     <div class='boxContent'>
@@ -31,7 +31,9 @@
           <a href='/index.php?page=register' title="Don't have an account? Just create one.">Register new account</a> |
           <a href='/index.php?page=forgot' title='Forgot your password?'>Forgot password?</a>
         </span>
-        
       </form>
+    </div>
+    <div class='boxContent'>
+		Currently tracking 500 bugs in 6 projects, managed by 50 users 
     </div>
   </div>

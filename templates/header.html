@@ -30,11 +30,36 @@
   <div id='headarea'>
     <div id='topmenu'>
 		{ if isset($user_id) }
-		<a href='#'>{$user_name}</a> | <a href='/index.php?page=logout'>logout</a>
+			<small>logged in as </small>
+			<strong>
+				<a href='#'>{$user_name}</a> | <a href='/index.php?page=logout'>logout</a>
+			</strong>
 		{ /if }
     </div>
     <div id='headcontent'>
-      
+      { if isset($user_id) }
+		<div class='baseLogo'>
+			<a href='/'>
+				<img src='/static/images/bugbase_small.png' alt='Bugbase - home' />
+			</a>
+		</div>
+		<div class='mainMenu'>
+			<ul>
+				<li class='rounded'>
+					<a href='/'>Home</a>
+				</li>
+				<li class='rounded'>
+					<a href='/'>Projects</a>
+				</li>
+				<li class='rounded'>
+					<a href='/'>My Bugs</a>
+				</li>
+				<li class='rounded'>
+					<a href='/'>Report a Bug</a>
+				</li>
+			</ul>		
+		</div>
+      { /if }
     </div>
   </div>
   <!-- end of #headarea -->
