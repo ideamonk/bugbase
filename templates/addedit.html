@@ -1,0 +1,20 @@
+<div id='contentSpacer'>
+	<h3>Add a new bug</h3>
+	<form id='frmReportBug' action='/index.php?page=addNew' method='post'>
+		<label for='bugname'>Summary</label>
+		<input type='text' name='bugname' />
+		
+		<label for='description'>Description</label>
+		<textarea name='description'></textarea>
+		
+		<label for='project'>Belongs to</label>
+		<select name='project'>
+			<option>Foo</option>
+			<option>Bar</option>
+			<option>Beep</option>
+		</select>
+		
+		<label for='priority'>Priority</label>
+		
+	</form>
+</div>

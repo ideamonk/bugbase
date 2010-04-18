@@ -57,13 +57,13 @@ body {
 /* other layout structures */
 #content { min-height:400px; margin:0px auto; width:98%;}
 
-#footer { color:#aaaaaa; text-align:center; }
+#footer { margin-top:40px; color:#aaaaaa; text-align:center; }
 
 
 /* Login page styles */
 .boxContent { 
   text-align:left; 
-  margin:10px;
+  margin:5px;
   padding:10px;
   }
 #leftBox, #rightBox {

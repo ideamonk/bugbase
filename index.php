@@ -43,6 +43,13 @@ switch ($page){
 		logout();
 		header("Location: /index.php");
 		break;
+	
+	case 'reportNew':
+		if (loggedIn()){
+			$template = 'addedit.html';
+			$smarty->assign('subtitle','Add new bug');
+		}
+		break;
 }
 
 session_to_smarty($smarty);							// move all session data to be available in views
