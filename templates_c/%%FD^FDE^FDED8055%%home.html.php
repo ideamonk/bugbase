@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2010-04-18 19:25:17
+<?php /* Smarty version 2.6.26, created on 2010-04-18 19:52:32
          compiled from home.html */ ?>
 <div id='contentSpacer'>
     <div id='leftBox'>
@@ -25,6 +25,32 @@
             <h2>Activity</h2>
             <div class='activityBox'>
                 <h3>Today</h3>
+                <ul>
+                    <li>
+                        Feature #4342 (closed) by Abhishek
+                    </li>
+                    <li>
+                        Bug #342 (commented) by Mrigank
+                        <br />
+                        <small> lorem ipsum dolor bla bla</small>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <h3>Last week</h3>
+                <ul>
+                    <li>
+                        Feature #4342 (closed) by Abhishek
+                    </li>
+                    <li>
+                        Bug #342 (commented) by Mrigank
+                        <br />
+                        <small> lorem ipsum dolor bla bla</small>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <h3>Last week</h3>
                 <ul>
                     <li>
                         Feature #4342 (closed) by Abhishek
