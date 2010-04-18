@@ -3,7 +3,7 @@ require 'libs/Smarty.class.php';
 
 $smarty = new Smarty;
 
-$template = "default.tpl";
+$template = "login.tpl";
 
 $smarty->display('header.tpl');
 $smarty->display($template);

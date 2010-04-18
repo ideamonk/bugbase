@@ -1,0 +1,63 @@
+* {
+  margin:0px;
+  padding:0px;
+  text-decoration:none;
+  }
+pre,code{font:12px Monaco,"Courier New","DejaVu Sans Mono","Bitstream Vera Sans Mono",monospace;}
+img { border: 0px; }
+
+
+
+body {
+  text-align:center;  /* to fix IE6 overrides */
+  font-size:12px;
+  font-family: helvetica,arial,freesans,clean,sans-serif;
+  }
+
+#wrapper {
+  width:98%;
+  margin:0px auto;
+  text-align:left;    /* restore alignment post-ie6-fix */ 
+}
+
+#topmenu {
+  text-align:right;
+  font-size:1em;
+  padding-right:10px;
+  font-weight:bold;
+}
+
+#headarea {
+  height:30px;
+}
+
+#content { min-height:400px; margin:0px auto; width:98%;}
+
+#footer { color:#aaaaaa; text-align:center; }
+
+
+/* Login page styles */
+.boxContent { 
+  text-align:left; 
+  margin:10px;
+  padding:10px;
+  }
+#leftBox, #rightBox {
+  text-align:center;    /* for equal spacing  */
+  width:48%;
+  display:inline-block;
+}
+#rightBox{ float:right; background:#dddddd; }
+#rightBox .boxContent {background:#efefef; }
+
+#welcome h3{
+  text-align:center;
+  margin-top:5px;
+}
+#welcome p {
+  padding:10px;
+}
+#loginForm { padding:10px;}
+#loginForm label { display:block; clear:both; }
+#loginForm input { width:95%; padding:5px; clear:top; margin:0px auto; margin-bottom:20px;}  
+#loginForm button { padding: 2px 10px; margin-right:10px; }

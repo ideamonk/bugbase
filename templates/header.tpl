@@ -26,5 +26,16 @@
 </head>
 
 <body>
+<div id='wrapper'>
+  <div id='headarea'>
+    <div id='topmenu'>
+      <a href='#'>ideamonk</a> | <a href='#'>logout</a>
+    </div>
+    <div id='headcontent'>
+      
+    </div>
+  </div>
+  <!-- end of #headarea -->
   
-
+  <div id='content'>
+    
