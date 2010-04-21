@@ -55,6 +55,7 @@ switch ($page){
 	
 	case 'addNew':
 		if (loggedIn()){
+			addNewBug();
 			$template = 'addedit.html';
 			$smarty->assign('subtitle','Add new bug');
 			$smarty->assign('scripts', array('/static/scripts/addnew.js'));
