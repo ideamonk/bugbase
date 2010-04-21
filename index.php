@@ -55,10 +55,10 @@ switch ($page){
 	
 	case 'addNew':
 		if (loggedIn()){
-			addNewBug();
-			$template = 'addedit.html';
-			$smarty->assign('subtitle','Add new bug');
-			$smarty->assign('scripts', array('/static/scripts/addnew.js'));
+			if (($bug_id = addNewBug()) > 0){
+				header("Location: /index.php?page=list&highlight=$bug_id");
+			}
+			// otherwise case never comes as it dies in addNewBug itself
 		}
 		break;
 		
@@ -66,6 +66,7 @@ switch ($page){
 		if (loggedIn()){
 			$template = 'buglist.html';
 			$smarty->assign('subtitle','bug list');
+			$smarty->assign('buglist',getAllBugList());
 		}
 		break;
 }
