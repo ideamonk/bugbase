@@ -18,4 +18,9 @@ function session_to_smarty(&$smarty){
 		$smarty->assign($key, $value);
 	}
 }
+
+function getCurrentUid(){
+	return $_SESSION['user_id'];
+}
 ?>
+
