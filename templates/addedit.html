@@ -18,39 +18,40 @@
 
 			<label for='project'>Belongs to: </label>
 			<select name='project' id='project'>
-				<option value='1'>Foo</option>
-				<option value='2'>Bar</option>
-				<option value='3'>Beep</option>
+				{section name=i loop=$projects}
+					<option value='{$projects[i].id}'>{$projects[i].name}</option>
+				{/section}
 			</select>
 			
 			<label for='affectedProject'>Also affects: </label>
 			<select name='affectedProject' id='affectedProject'>
-				<option value='1'>Foo</option>
-				<option value='2'>Bar</option>
-				<option value='3'>Beep</option>
+				<option value='0'>none</option>
+				{section name=i loop=$projects}
+					<option value='{$projects[i].id}'>{$projects[i].name}</option>
+				{/section}
 			</select>
 			
 			<br />
 			
 			<label for='priority'>Priority: </label>
 			<select name='priority' id='priority'>
-				<option value='1'>low</option>
-				<option value='2'>med</option>
-				<option value='3'>high</option>
+				{section name=i loop=$priorities}
+					<option value='{$priorities[i].id}'>{$priorities[i].label}</option>
+				{/section}
 			</select>
 			
 			<label for='bugType'>Bug type: </label>
 			<select name='bugType' id='bugType'>
-				<option value='1'>defect</option>
-				<option value='2'>feature</option>
-				<option value='3'>patch</option>
+				{section name=i loop=$categories}
+					<option value='{$categories[i].id}'>{$categories[i].label}</option>
+				{/section}
 			</select>
 			
 			<label for='status'>Status: </label>
 			<select name='status' id='status'>
-				<option value='1'>new</option>
-				<option value='2'>duplicate</option>
-				<option value='3'>closed</option>
+				{section name=i loop=$statuses}
+					<option value='{$statuses[i].id}'>{$statuses[i].label}</option>
+				{/section}
 			</select>
 			
 			<label for='keywords'>Keywords: </label>

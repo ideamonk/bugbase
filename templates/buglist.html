@@ -4,10 +4,10 @@
 		<ul>
 			<li class='heading'>
 				<div class='l_bid'> Bug id </div>
+				<div class='l_subject'> Subject </div>
 				<div class='l_status'> Status </div>
 				<div class='l_affects'> Project </div>
 				<div class='l_priority'> Priority </div>
-				<div class='l_subject'> Subject </div>
 				<div class='l_category'> Category </div>
 				<div class='l_lastupdate'> Last updated </div>
 			</li>
@@ -15,14 +15,19 @@
 			{section name=i loop=$buglist}
 				<li class='{$buglist[i].status|replace:' ':''}'>
 				<div class='l_bid'> #{$buglist[i].id} </div>
+				<div class='l_subject'> 
+					<a href='/index.php?page=showbug&id={$buglist[i].id}'>
+						{ $buglist[i].bugName } 
+					</a>
+				</div>
 				<div class='l_status'> {$buglist[i].status} </div>
-				<div class='l_affects'> {$buglist[i].project_name} </div>
+				<div class='l_affects'>{$buglist[i].project_name}</div>
 				<div class='l_priority'> {$buglist[i].priority} </div>
-				<div class='l_subject'> { $buglist[i].bugName } </div>
 				<div class='l_category'> {$buglist[i].bugType} </div>
 				<div class='l_lastupdate'> {$buglist[i].timestamp|date_format:"%Y/%m/%d"} </div>
 			{/section}
 			
+			<!-- template reference begins
 			<li class='open'>
 				<div class='l_bid'> #34 </div>
 				<div class='l_status'> open </div>
@@ -62,6 +67,8 @@
 				<div class='l_category'> defect </div>
 				<div class='l_lastupdate'> 21-5-10 </div>
 			</li>
+			end of template reference 
+			-->
 		</ul>
 	</div>
 </div>

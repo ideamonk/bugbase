@@ -1,17 +1,17 @@
-<?php /* Smarty version 2.6.26, created on 2010-04-22 02:20:46
+<?php /* Smarty version 2.6.26, created on 2010-04-22 02:32:41
          compiled from buglist.html */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'replace', 'buglist.html', 16, false),array('modifier', 'date_format', 'buglist.html', 23, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'replace', 'buglist.html', 16, false),array('modifier', 'date_format', 'buglist.html', 27, false),)), $this); ?>
 <div id='contentSpacer'>
 	<h2>Bugs assigned to you -</h2>
 	<div id='buglist'>
 		<ul>
 			<li class='heading'>
 				<div class='l_bid'> Bug id </div>
+				<div class='l_subject'> Subject </div>
 				<div class='l_status'> Status </div>
 				<div class='l_affects'> Project </div>
 				<div class='l_priority'> Priority </div>
-				<div class='l_subject'> Subject </div>
 				<div class='l_category'> Category </div>
 				<div class='l_lastupdate'> Last updated </div>
 			</li>
@@ -44,13 +44,18 @@ $this->_sections['i']['last']       = ($this->_sections['i']['iteration'] == $th
 '>
 				<div class='l_bid'> #<?php echo $this->_tpl_vars['buglist'][$this->_sections['i']['index']]['id']; ?>
  </div>
+				<div class='l_subject'> 
+					<a href='/index.php?page=showbug&id=<?php echo $this->_tpl_vars['buglist'][$this->_sections['i']['index']]['id']; ?>
+'>
+						<?php echo $this->_tpl_vars['buglist'][$this->_sections['i']['index']]['bugName']; ?>
+ 
+					</a>
+				</div>
 				<div class='l_status'> <?php echo $this->_tpl_vars['buglist'][$this->_sections['i']['index']]['status']; ?>
  </div>
-				<div class='l_affects'> <?php echo $this->_tpl_vars['buglist'][$this->_sections['i']['index']]['project_name']; ?>
- </div>
+				<div class='l_affects'><?php echo $this->_tpl_vars['buglist'][$this->_sections['i']['index']]['project_name']; ?>
+</div>
 				<div class='l_priority'> <?php echo $this->_tpl_vars['buglist'][$this->_sections['i']['index']]['priority']; ?>
- </div>
-				<div class='l_subject'> <?php echo $this->_tpl_vars['buglist'][$this->_sections['i']['index']]['bugName']; ?>
  </div>
 				<div class='l_category'> <?php echo $this->_tpl_vars['buglist'][$this->_sections['i']['index']]['bugType']; ?>
  </div>
@@ -58,6 +63,7 @@ $this->_sections['i']['last']       = ($this->_sections['i']['iteration'] == $th
  </div>
 			<?php endfor; endif; ?>
 			
+			<!-- template reference begins
 			<li class='open'>
 				<div class='l_bid'> #34 </div>
 				<div class='l_status'> open </div>
@@ -97,6 +103,8 @@ $this->_sections['i']['last']       = ($this->_sections['i']['iteration'] == $th
 				<div class='l_category'> defect </div>
 				<div class='l_lastupdate'> 21-5-10 </div>
 			</li>
+			end of template reference 
+			-->
 		</ul>
 	</div>
 </div>

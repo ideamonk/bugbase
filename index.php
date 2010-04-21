@@ -50,6 +50,12 @@ switch ($page){
 			$template = 'addedit.html';
 			$smarty->assign('subtitle','Add new bug');
 			$smarty->assign('scripts', array('/static/scripts/addnew.js'));
+			
+			// put in form data for select options
+			$formdata = getNewFormData();
+			foreach($formdata as $key=>$val){
+				$smarty->assign($key, $val);
+			}
 		}
 		break;
 	
@@ -67,6 +73,9 @@ switch ($page){
 			$template = 'buglist.html';
 			$smarty->assign('subtitle','bug list');
 			$smarty->assign('buglist',getAllBugList());
+			if (isset($_GET['highlight'])){
+				$smarty->assign('highlight',$_GET['highlight']);
+			}
 		}
 		break;
 }

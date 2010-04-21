@@ -1,6 +1,17 @@
 <?php
 // Reusable db code to be used in the main controllers
 
+function getTableArray($tablename){
+	$rows = array();
+	$index = 0;
+	$query = "SELECT * from $tablename;";
+	$result = mysql_query($query);
+	while ($row = mysql_fetch_assoc($result)){
+		$rows[$index++] = $row;
+	}
+	return $rows;
+}
+
 function pickFromPost($values){
 	// picks values from POST and returns an associative array
 	$a = array();
@@ -23,6 +34,17 @@ function addNewBug(){
 	$result = mysql_query($query) or die ("Failed to insert '{$bug['bugName']}'");
 	
 	return $new_bug_id;
+}
+
+function getNewFormData(){
+	// generates form data for new bug report form
+	$formdata = array ( 'projects' => getTableArray('projects'),
+						'priorities' => getTableArray('priorities'),
+						'statuses' => getTableArray('statuses'),
+						'categories' => getTableArray('categories')
+					);
+	
+	return $formdata;
 }
 
 function getAllBugList(){
