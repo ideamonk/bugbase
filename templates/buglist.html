@@ -13,7 +13,7 @@
 			</li>
 			
 			{section name=i loop=$buglist}
-				<li class='{$buglist[i].status|replace:' ':''}'>
+				<li class='{$buglist[i].status|replace:' ':''}' {if isset($highlight)} id='highlighted' { /if }>
 				<div class='l_bid'> #{$buglist[i].id} </div>
 				<div class='l_subject'> 
 					<a href='/index.php?page=showbug&id={$buglist[i].id}'>

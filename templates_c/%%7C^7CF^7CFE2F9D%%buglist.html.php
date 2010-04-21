@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2010-04-22 02:32:41
+<?php /* Smarty version 2.6.26, created on 2010-04-22 03:11:46
          compiled from buglist.html */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'replace', 'buglist.html', 16, false),array('modifier', 'date_format', 'buglist.html', 27, false),)), $this); ?>
@@ -41,7 +41,7 @@ $this->_sections['i']['first']      = ($this->_sections['i']['iteration'] == 1);
 $this->_sections['i']['last']       = ($this->_sections['i']['iteration'] == $this->_sections['i']['total']);
 ?>
 				<li class='<?php echo ((is_array($_tmp=$this->_tpl_vars['buglist'][$this->_sections['i']['index']]['status'])) ? $this->_run_mod_handler('replace', true, $_tmp, ' ', '') : smarty_modifier_replace($_tmp, ' ', '')); ?>
-'>
+' <?php if (isset ( $this->_tpl_vars['highlight'] )): ?> id='highlighted' <?php endif; ?>>
 				<div class='l_bid'> #<?php echo $this->_tpl_vars['buglist'][$this->_sections['i']['index']]['id']; ?>
  </div>
 				<div class='l_subject'> 

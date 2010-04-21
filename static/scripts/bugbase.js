@@ -15,6 +15,8 @@ $(document).ready( function(){
 		$('#contentSpacer').css('height',maxHeight.toString() + 'px');
 	}
 	
+	//var oldback = $("#highlighted").css('backgroundColor');
+	$("#highlighted").fadeTo(500,0.2).fadeTo(1000,1.0);
 } );
 
 
