@@ -4,6 +4,7 @@ require 'libs/Smarty.class.php';				// templating engine
 $smarty = new Smarty;
 
 include_once('includes/db.inc.php');			// DB connectivity
+include_once('includes/models.inc.php');		// Reusable db code
 include_once('includes/auth.inc.php');			// user authentication
 include_once('includes/helpers.inc.php');		// misc helpers
 
