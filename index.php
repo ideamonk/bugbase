@@ -48,6 +48,7 @@ switch ($page){
 		if (loggedIn()){
 			$template = 'addedit.html';
 			$smarty->assign('subtitle','Add new bug');
+      $smarty->assign('scripts','/static/scripts/addnew.js');
 		}
 		break;
 	
