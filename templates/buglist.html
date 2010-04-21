@@ -12,6 +12,17 @@
 				<div class='l_lastupdate'> Last updated </div>
 			</li>
 			
+			{section name=i loop=$buglist}
+				<li class='{$buglist[i].status|replace:' ':''}'>
+				<div class='l_bid'> #{$buglist[i].id} </div>
+				<div class='l_status'> {$buglist[i].status} </div>
+				<div class='l_affects'> {$buglist[i].project_name} </div>
+				<div class='l_priority'> {$buglist[i].priority} </div>
+				<div class='l_subject'> { $buglist[i].bugName } </div>
+				<div class='l_category'> {$buglist[i].bugType} </div>
+				<div class='l_lastupdate'> {$buglist[i].timestamp|date_format:"%Y/%m/%d"} </div>
+			{/section}
+			
 			<li class='open'>
 				<div class='l_bid'> #34 </div>
 				<div class='l_status'> open </div>

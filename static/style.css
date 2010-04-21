@@ -210,14 +210,14 @@ textarea:focus {
 #buglist ul li div.l_bid{ width:5%; }
 #buglist ul li .l_status{ width:10%; }
 #buglist ul li .l_priority{ width:5%; }
-#buglist ul li .l_affects{ width:5%; }
-#buglist ul li div.l_subject{ width:46%; }
+#buglist ul li .l_affects{ width:20%; }
+#buglist ul li div.l_subject{ width:30%; }
 #buglist ul li .l_category{ width:10%; }
 #buglist ul li .l_lastupdate{ width:10%; }
 
 #buglist ul li.open { background: #FCF0AE; }
 #buglist ul li.closed { background: #FFCCCC; }
-#buglist ul li.inprogress { background: #CCEBFC; }
+#buglist ul li.inprogress, #buglist ul li.underprogress { background: #CCEBFC; }
 #buglist ul li.fixed { background: #CBFFAF; }
 
 .validationError {
