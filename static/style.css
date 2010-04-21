@@ -219,3 +219,21 @@ textarea:focus {
 #buglist ul li.closed { background: #FFCCCC; }
 #buglist ul li.inprogress { background: #CCEBFC; }
 #buglist ul li.fixed { background: #CBFFAF; }
+
+.validationError {
+  padding:5px;
+  text-align:center;
+  width:100%;
+  display:none;
+}
+
+.validationError p {
+  margin:0px 3px;
+  display:inline-block;
+  padding:5px 10px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  background:#f6d5d5;
+  color:red;
+}

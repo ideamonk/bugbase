@@ -48,10 +48,18 @@ switch ($page){
 		if (loggedIn()){
 			$template = 'addedit.html';
 			$smarty->assign('subtitle','Add new bug');
-      $smarty->assign('scripts','/static/scripts/addnew.js');
+			$smarty->assign('scripts', array('/static/scripts/addnew.js'));
 		}
 		break;
 	
+	case 'addNew':
+		if (loggedIn()){
+			$template = 'addedit.html';
+			$smarty->assign('subtitle','Add new bug');
+			$smarty->assign('scripts', array('/static/scripts/addnew.js'));
+		}
+		break;
+		
 	case 'list':
 		if (loggedIn()){
 			$template = 'buglist.html';

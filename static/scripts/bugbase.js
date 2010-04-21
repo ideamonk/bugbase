@@ -17,3 +17,19 @@ $(document).ready( function(){
 	
 } );
 
+
+// Validation helpers
+//
+
+function showValidationErrors(){
+  $('.validationError').fadeIn('slow');
+}
+
+function hideValidationErrors(){
+  $('#validationErrors').empty();
+}
+
+function addError(msg){
+  $("#validationErrors").append("<p>"+msg+"</p");
+}
+
