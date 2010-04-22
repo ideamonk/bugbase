@@ -51,7 +51,7 @@ function getAllBugList(){
 	$buglist = array();
 	$index = 0;
 	
-	$query = "SELECT * FROM `bugs`;";
+	$query = "SELECT * FROM `bugs` order by createdAt desc;";
 	$result = mysql_query($query) or die ("Failed to fetch bug list");
 	while ($row = mysql_fetch_assoc($result)){
 		// augument a row with latest bughistory info
