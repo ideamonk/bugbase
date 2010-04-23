@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2010-04-23 20:46:00
+<?php /* Smarty version 2.6.26, created on 2010-04-23 21:24:45
          compiled from header.html */ ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -73,19 +73,19 @@ $this->_sections['i']['last']       = ($this->_sections['i']['iteration'] == $th
 		</div>
 		<div class='mainMenu'>
 			<ul>
-				<li class='rounded'>
-					<a href='/'>Home</a>
+				<li class='<?php if (( $this->_tpl_vars['currentpage'] == 'home' )): ?>rounded_selected<?php else: ?>rounded<?php endif; ?>'>
+					<a href='/index.php?page=home'>Home</a>
 				</li>
-				<li class='rounded'>
+				<li class='<?php if (( $this->_tpl_vars['currentpage'] == 'allbugs' )): ?>rounded_selected<?php else: ?>rounded<?php endif; ?>'>
 					<a href='/index.php?page=list'>Bugs</a>
 				</li>
-				<li class='rounded'>
+				<li class='<?php if (( $this->_tpl_vars['currentpage'] == 'mybugs' )): ?>rounded_selected<?php else: ?>rounded<?php endif; ?>'>
 					<a href='/index.php?page=list&filter=self'>My Bugs</a>
 				</li>
-				<li class='rounded'>
+				<li class='<?php if (( $this->_tpl_vars['currentpage'] == 'projects' )): ?>rounded_selected<?php else: ?>rounded<?php endif; ?>'>
 					<a href='/index.php?page=projects'>Projects</a>
 				</li>
-				<li class='rounded'>
+				<li class='<?php if (( $this->_tpl_vars['currentpage'] == 'reportNew' )): ?>rounded_selected<?php else: ?>rounded<?php endif; ?>'>
 					<a href='/index.php?page=reportNew'>Report new Bug</a>
 				</li>
 			</ul>		

@@ -45,19 +45,19 @@
 		</div>
 		<div class='mainMenu'>
 			<ul>
-				<li class='rounded'>
-					<a href='/'>Home</a>
+				<li class='{if ($currentpage=='home')}rounded_selected{else}rounded{/if}'>
+					<a href='/index.php?page=home'>Home</a>
 				</li>
-				<li class='rounded'>
+				<li class='{if ($currentpage=='allbugs')}rounded_selected{else}rounded{/if}'>
 					<a href='/index.php?page=list'>Bugs</a>
 				</li>
-				<li class='rounded'>
+				<li class='{if ($currentpage=='mybugs')}rounded_selected{else}rounded{/if}'>
 					<a href='/index.php?page=list&filter=self'>My Bugs</a>
 				</li>
-				<li class='rounded'>
+				<li class='{if ($currentpage=='projects')}rounded_selected{else}rounded{/if}'>
 					<a href='/index.php?page=projects'>Projects</a>
 				</li>
-				<li class='rounded'>
+				<li class='{if ($currentpage=='reportNew')}rounded_selected{else}rounded{/if}'>
 					<a href='/index.php?page=reportNew'>Report new Bug</a>
 				</li>
 			</ul>		

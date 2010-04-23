@@ -173,6 +173,21 @@ textarea:focus {
 	background: -webkit-gradient(linear, left top, left bottom, from(#999), to(#999), color-stop(0.2, #aaa), color-stop(0.3, #aaa), color-stop(0.7, #aaa));
 }
 
+.rounded_selected {
+	background-color: #999;
+	background: -webkit-gradient(linear, left top, left bottom, from(#999), to(#999), color-stop(0.2, #aaa), color-stop(0.3, #aaa), color-stop(0.7, #aaa));
+	color:#fff;
+	border-radius:5px;
+	-moz-border-radius:5px;
+	padding:5px 15px;
+	margin:5px 5px -5px 5px;
+	font-size:1.0em;
+	-webkit-box-shadow: 1px 1px 5px #aaa;
+	-moz-box-shadow: 1px 1px 5px #aaa;
+	overflow:hidden;
+}
+.mainMenu ul .rounded_selected a { color: #fff; text-shadow: 1px 1px 3px #000;}
+
 #contentSpacer {
 	margin-top:20px;
 	background:#ffffff;

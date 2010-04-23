@@ -37,6 +37,7 @@ switch ($page){
 		if (loggedIn()){
 			$template = 'home.html';
 			$smarty->assign('subtitle', 'Home');
+			$_SESSION['currentpage']='home';
 		}
 		break;
 	
@@ -50,6 +51,7 @@ switch ($page){
 			$template = 'addedit.html';
 			$smarty->assign('subtitle','Add new bug');
 			$smarty->assign('scripts', array('/static/scripts/addnew.js'));
+			$_SESSION['currentpage']='reportNew';
 			
 			// put in form data for select options
 			$formdata = getNewFormData();
@@ -76,12 +78,14 @@ switch ($page){
 				$smarty->assign('subtitle','All bugs');
 				$smarty->assign('buglist_heading', 'All bugs');
 				$smarty->assign('buglist',getAllBugList());
+				$_SESSION['currentpage']='allbugs';
 			} else {
 				switch ($_GET['filter']){
 					case 'self':
 						$smarty->assign('subtitle','Bugs related to you');
 						$smarty->assign('buglist_heading', 'Bugs related to you');
 						$smarty->assign('buglist',getMyBugList());
+						$_SESSION['currentpage']='mybugs';
 					break;
 					
 				}
@@ -97,6 +101,7 @@ switch ($page){
 			$template = 'projectlist.html';
 			$smarty->assign('subtitle','Projects');
 			$smarty->assign('projectlist_heading', 'All projects');
+			$_SESSION['currentpage']='projects';
 			break;
 }
 
