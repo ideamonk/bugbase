@@ -38,6 +38,7 @@ switch ($page){
 			$template = 'home.html';
 			$smarty->assign('subtitle', 'Home');
 			$smarty->assign('my_open_count', getMyBugCount('open'));
+			$smarty->assign('my_fixed_count', getMyBugCount('fixed'));
 			$_SESSION['currentpage']='home';
 		}
 		break;
@@ -87,7 +88,14 @@ switch ($page){
 						$smarty->assign('buglist_heading', 'Bugs related to you');
 						$smarty->assign('buglist',getMyBugList());
 						$_SESSION['currentpage']='mybugs';
-					break;
+						break;
+						
+					case 'self_fixed':
+						$smarty->assign('subtitle','Bugs fixed by you');
+						$smarty->assign('buglist_heading', 'Bugs fixed by you');
+						$smarty->assign('buglist',getMyFixedBugList());
+						$_SESSION['currentpage']='mybugs';
+						break;
 					
 				}
 			}
@@ -105,6 +113,8 @@ switch ($page){
 			$smarty->assign('projectlist',getProjectList());
 			$_SESSION['currentpage']='projects';
 			break;
+		default:
+			header("Location: /index.php?page=home");
 }
 
 session_to_smarty($smarty);							// move all session data to be available in views

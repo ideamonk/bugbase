@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2010-04-23 22:16:04
+<?php /* Smarty version 2.6.26, created on 2010-04-23 22:40:39
          compiled from home.html */ ?>
 <div id='contentSpacer'>
     <div id='leftBox'>
@@ -12,7 +12,8 @@
 </a> open bugs assigned to you.
             </p>
             <p class='userClose'>
-                So far, you have fixed <a href='#'>12</a> bugs.
+                So far, you have fixed <a href='/index.php?page=list&filter=self_fixed'><?php echo $this->_tpl_vars['my_fixed_count']; ?>
+</a> bugs.
             </p>
             <br />
             <h3>You last 10 bugs</h3>
