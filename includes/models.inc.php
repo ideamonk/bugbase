@@ -119,3 +119,29 @@ function getMyBugList(){
 	$filtered_query = "SELECT * FROM `bugs` where id in (select  bug_id from bughistory where assignedTo = {$user_id}) order by createdAt desc;";
 	return getAllBugList($filtered_query);
 }
+
+function getProjectList(){
+	$projectlist = array();
+	$index = 0;
+	
+	$query = "SELECT * FROM `projects` order by id asc;";
+	$result = mysql_query($query) or die ("Failed to fetch project list");
+	
+	while ($row = mysql_fetch_assoc($result)){
+		// augument a row with open bugs count
+		$query2 = "SELECT count(id) from `bughistory` where `bug_id` in (SELECT id from `bugs` where  `project`={$row['id']}) and `status` in (SELECT `id` from `statuses` where label='open');";
+		$result2 = mysql_query($query2);
+		if ($row2 = mysql_fetch_array($result2)){
+			$row['open_count'] = $row2[0];
+		}
+		
+		// augument a row with project owner name
+		$query2 = "SELECT name from users where id={$row['owner']};";
+		$result2 = mysql_query($query2);
+		if ($row2 = mysql_fetch_array($result2)){
+			$row['owner'] = $row2[0];
+		}
+		$projectlist[$index++] = $row;
+	}
+	return $projectlist;
+}

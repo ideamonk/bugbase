@@ -101,6 +101,7 @@ switch ($page){
 			$template = 'projectlist.html';
 			$smarty->assign('subtitle','Projects');
 			$smarty->assign('projectlist_heading', 'All projects');
+			$smarty->assign('projectlist',getProjectList());
 			$_SESSION['currentpage']='projects';
 			break;
 }
