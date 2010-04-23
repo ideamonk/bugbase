@@ -37,6 +37,7 @@ switch ($page){
 		if (loggedIn()){
 			$template = 'home.html';
 			$smarty->assign('subtitle', 'Home');
+			$smarty->assign('my_open_count', getMyBugCount('open'));
 			$_SESSION['currentpage']='home';
 		}
 		break;

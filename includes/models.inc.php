@@ -145,3 +145,11 @@ function getProjectList(){
 	}
 	return $projectlist;
 }
+
+
+function getMyBugCount($labelfilter){
+	// generic bug counter for user, counts according to status label.
+	$query = "SELECT count(id) from `bughistory` where `assignedTo`={$_SESSION['user_id']} and `status` = (select id from statuses where label='{$labelfilter}') group by bug_id;";
+	$result = mysql_query($query);
+	return mysql_num_rows($result);
+}
