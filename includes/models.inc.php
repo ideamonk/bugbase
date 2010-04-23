@@ -47,12 +47,17 @@ function getNewFormData(){
 	return $formdata;
 }
 
-function getAllBugList(){
+function getAllBugList($myquery=""){
 	$buglist = array();
 	$index = 0;
 	
 	$query = "SELECT * FROM `bugs` order by createdAt desc;";
+	if ($myquery != ""){
+		$query = $myquery;
+	}
+	
 	$result = mysql_query($query) or die ("Failed to fetch bug list");
+	
 	while ($row = mysql_fetch_assoc($result)){
 		// augument a row with latest bughistory info
 		$query2 = "SELECT * from `bughistory` where bug_id = '{$row['id']}' order by timestamp desc;";
