@@ -1,0 +1,41 @@
+<div id='contentSpacer'>
+	<h2>{$project_heading}</h2>
+	<div id='buglist'>
+		<ul>
+			<li class='heading'>
+				<div class='l_pid'> Id </div>
+				<div class='l_projectname'> Project name </div>
+				<div class='l_owner'> Manager </div>
+				<div class='l_open'> Open bugs </div>
+				<div class='l_keywords'> Keywords </div>
+			</li>
+			<!--
+			{section name=i loop=$buglist}
+				<li class='{$buglist[i].status|replace:' ':''}' 
+					{ if (isset($highlight) && $highlight == $buglist[i].id) } id='highlighted' { /if }>
+				<div class='l_bid'> #{$buglist[i].id} </div>
+				<div class='l_subject'> 
+					<a href='/index.php?page=showbug&id={$buglist[i].id}'>
+						{ $buglist[i].bugName } 
+					</a>
+				</div>
+				<div class='l_status'> {$buglist[i].status} </div>
+				<div class='l_affects'>{$buglist[i].project_name}</div>
+				<div class='l_priority'> {$buglist[i].priority} </div>
+				<div class='l_category'> {$buglist[i].bugType} </div>
+				<div class='l_lastupdate'> {$buglist[i].timestamp|date_format:"%Y/%m/%d"} </div>
+			{/section}
+			-->
+			
+			{section name=i loop=$projectlist}
+				<li class='l_project'>
+					<div class='l_pid'> #{$projectlist[i].id} </div>
+					<div class='l_projectname'>{$projectlist[i].name}</div>
+					<div class='l_owner'>{$projectlist[i].owner}</div>
+					<div class='l_open'>{$projectlist[i].open_count}</div>
+					<div class='l_keywords'>{$projectlist[i].keywords}</div>
+				</li>
+			{/section}
+		</ul>
+	</div>
+</div>
