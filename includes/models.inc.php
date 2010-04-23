@@ -48,6 +48,7 @@ function getNewFormData(){
 }
 
 function getAllBugList($myquery=""){
+	// A generic bug list generator, by default results in all bugs
 	$buglist = array();
 	$index = 0;
 	
@@ -110,4 +111,11 @@ function getAllBugList($myquery=""){
 		$buglist[$index++] = $row;				// add this row to buglist
 	}
 	return $buglist;
+}
+
+
+function getMyBugList(){
+	$user_id = $_SESSION['user_id'];
+	$filtered_query = "SELECT * FROM `bugs` where id in (select  bug_id from bughistory where assignedTo = {$user_id}) order by createdAt desc;";
+	return getAllBugList($filtered_query);
 }

@@ -1,9 +1,10 @@
-<?php /* Smarty version 2.6.26, created on 2010-04-23 19:46:28
+<?php /* Smarty version 2.6.26, created on 2010-04-23 19:51:51
          compiled from buglist.html */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'replace', 'buglist.html', 16, false),array('modifier', 'date_format', 'buglist.html', 28, false),)), $this); ?>
 <div id='contentSpacer'>
-	<h2>Bugs assigned to you -</h2>
+	<h2><?php echo $this->_tpl_vars['buglist_heading']; ?>
+</h2>
 	<div id='buglist'>
 		<ul>
 			<li class='heading'>

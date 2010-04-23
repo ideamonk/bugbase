@@ -71,10 +71,24 @@ switch ($page){
 	case 'list':
 		if (loggedIn()){
 			$template = 'buglist.html';
-			$smarty->assign('subtitle','bug list');
-			$smarty->assign('buglist',getAllBugList());
+			if (!isset($_GET['filter'])){
+				// when no filter is set on buglist, show all of them
+				$smarty->assign('subtitle','All bugs');
+				$smarty->assign('buglist_heading', 'All bugs');
+				$smarty->assign('buglist',getAllBugList());
+			} else {
+				switch ($_GET['filter']){
+					case 'self':
+						$smarty->assign('subtitle','Bugs related to you');
+						$smarty->assign('buglist_heading', 'Bugs related to you');
+						$smarty->assign('buglist',getMyBugList());
+					break;
+					
+				}
+			}
+			// hilighting is common to all
 			if (isset($_GET['highlight'])){
-				$smarty->assign('highlight',$_GET['highlight']);
+					$smarty->assign('highlight',$_GET['highlight']);
 			}
 		}
 		break;
