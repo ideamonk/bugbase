@@ -211,7 +211,7 @@ textarea:focus {
 #buglist ul li .l_status{ width:10%; }
 #buglist ul li .l_priority{ width:5%; }
 #buglist ul li .l_affects{ width:20%; }
-#buglist ul li div.l_subject{ width:30%; }
+#buglist ul li div.l_subject{ width:30%; font-weight:bold;}
 #buglist ul li .l_category{ width:10%; }
 #buglist ul li .l_lastupdate{ width:10%; }
 
@@ -237,3 +237,12 @@ textarea:focus {
   background:#f6d5d5;
   color:red;
 }
+
+/* project list page */
+#buglist ul .l_project { background: #BFEAFF; }
+#buglist ul li .l_pid{ width:5%; }
+#buglist ul li .l_projectname { width:40%; font-weight:bold; }
+#buglist ul li .l_owner{ width:17%; }
+#buglist ul li .l_open{ width:10%; }
+#buglist ul li .l_keywords{ width:20%; }
+

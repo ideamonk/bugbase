@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2010-04-23 20:02:37
+<?php /* Smarty version 2.6.26, created on 2010-04-23 20:46:00
          compiled from header.html */ ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -83,7 +83,7 @@ $this->_sections['i']['last']       = ($this->_sections['i']['iteration'] == $th
 					<a href='/index.php?page=list&filter=self'>My Bugs</a>
 				</li>
 				<li class='rounded'>
-					<a href='/'>Projects</a>
+					<a href='/index.php?page=projects'>Projects</a>
 				</li>
 				<li class='rounded'>
 					<a href='/index.php?page=reportNew'>Report new Bug</a>

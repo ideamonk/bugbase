@@ -92,6 +92,12 @@ switch ($page){
 			}
 		}
 		break;
+		
+		case 'projects':
+			$template = 'projectlist.html';
+			$smarty->assign('subtitle','Projects');
+			$smarty->assign('projectlist_heading', 'All projects');
+			break;
 }
 
 session_to_smarty($smarty);							// move all session data to be available in views
