@@ -99,7 +99,7 @@ body {
 #loginForm, #frmReportBug { padding:10px;}
 #loginForm label, #frmReportBug .frmBig label { display:block; clear:both; }
 #loginForm input, #frmReportBug .frmBig input { width:95%; padding:5px; clear:top; margin:0px auto; margin-bottom:10px; margin-top:10px;}  
-#loginForm button, #frmReportBug .frmBig button { padding: 2px 10px; margin-right:10px; }
+#loginForm button, #frmReportBug .frmBig button, .h_revisionbox button { padding: 2px 10px; margin-right:10px; }
 
 .errorflash{
 	clear:both;
@@ -196,6 +196,18 @@ textarea:focus {
 	padding:30px;
 }
 
+.greenbox{
+	border-radius:5px;
+	padding:2px 5px;
+	margin:2px 5px;
+	border:1px solid #5bbb65;
+	color:white;
+	font-weight:bold;
+	text-shadow: -1px -1px 1px #44984d;
+	background-color:#3ea949;
+	background: -webkit-gradient(linear, left top, left bottom, from(#65d070), to(#3ea949));
+}
+
 /* add new bug page */
 #frmReportBug .frmBig { padding-left:4%; margin:0px auto; }
 #frmReportBug textarea { width:95%; padding:5px; overflow:auto; height:80px; }
@@ -219,7 +231,7 @@ textarea:focus {
 
 #buglist ul li div {
 	display:inline-block; border-right:1px solid #aaa; padding-right:3px; padding-left:3px;
-	overflow:hidden;
+	overflow:hih_commentdden;
 }
 #buglist ul li.heading { font-weight:bold;}
 #buglist ul li div.l_bid{ width:5%; }
@@ -311,20 +323,21 @@ textarea:focus {
 	color:white;
 	font-weight:bold;
 	text-shadow: -1px -1px 1px #366694;
-	background: #599bdc -webkit-gradient(linear, left top, left bottom, from(#599bdc), to(#3072b3));
+	background: -webkit-gradient(linear, left top, left bottom, from(#599bdc), to(#3072b3));
+	background-color:#3072b3;
 }
 
-.greenbox{
-	border-radius:5px;
-	padding:2px 5px;
-	margin:2px 5px;
-	border:1px solid #5bbb65;
-	color:white;
-	font-weight:bold;
-	text-shadow: -1px -1px 1px #44984d;
-	background: #599bdc -webkit-gradient(linear, left top, left bottom, from(#65d070), to(#3ea949));
-	
-	
+.h_revisionbox {
+	margin-top:50px;
 }
-
-.h_comment p { margin-left:20px; margin-top:10px; }
+.h_revisionbox select, .h_revisionbox input {
+	width:90%;
+}
+#buglist #h_rev_comment { display:block; border-right:none; clear:both; margin-top:10px; padding:10px; }
+#txtComment { 
+	width:99%; 
+	border-radius:10px;
+	border:1px solid #999;
+	padding:5px;
+	height:40px;
+}

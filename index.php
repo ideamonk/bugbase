@@ -120,9 +120,15 @@ switch ($page){
 			if (!loggedIn()){ header("Location: $default_location"); }
 			$template = 'bug.html';
 			$_SESSION['currentpage']='';
-			if (isset($_GET['bug_id'])){
+			if (!isset($_GET['bug_id'])){
 				$smarty->assign('buglist_heading', 'No Bug selected!');
 			} else {
+				// Show a bug's history and allow adding a revision
+				// put in form data for select options
+				$formdata = getNewFormData();
+				foreach($formdata as $key=>$val){
+					$smarty->assign($key, $val);
+				}
 			}
 			break;
 			
