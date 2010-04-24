@@ -261,3 +261,30 @@ textarea:focus {
 #buglist ul li .l_open{ width:10%; }
 #buglist ul li .l_keywords{ width:20%; }
 
+
+/* bug description page */
+.bug_desc {
+	margin:5px;
+	padding:5px;
+}
+.bug_desc h3 {
+	background: #efefef -webkit-gradient(linear, left top, left bottom, from(#efefef), to(#BCC7CC));
+	padding:5px;
+	border-radius:5px 5px 0px 0px;
+}
+.bug_desc div {
+	background: #efefef;
+	border-radius:0px 0px 5px 5px;
+	padding:10px;
+}
+.statusline{}
+.statusline p {
+	display:inline-block;
+	margin:5px;
+	padding:2px 5px;
+}
+.statusline p span{
+	border-radius:5px;
+	padding:2px 5px;
+	background: #D6EBFF -webkit-gradient(linear, left top, left bottom, from(#D6EBFF), to(#9DDCF5), color-stop(0.4, #D6EBFF));
+}

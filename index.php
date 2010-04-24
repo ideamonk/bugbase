@@ -114,6 +114,16 @@ switch ($page){
 			$smarty->assign('projectlist',getProjectList());
 			$_SESSION['currentpage']='projects';
 			break;
+			
+		case 'bug':
+			$template = 'bug.html';
+			$_SESSION['currentpage']='';
+			if (isset($_GET['bug_id'])){
+				$smarty->assign('buglist_heading', 'No Bug selected!');
+			} else {
+			}
+			break;
+			
 		default:
 			header("Location: /index.php?page=home");
 }
