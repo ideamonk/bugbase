@@ -196,10 +196,18 @@ function getProjectList(){
 
 function getMyBugCount($labelfilter){
 	// generic bug counter for user, counts according to status label.
-	$query = "SELECT id from `bughistory` where `assignedTo`={$_SESSION['user_id']} and `status` = (select id from statuses where label='{$labelfilter}') group by bug_id having (id = max(id));";
-	$count = 0;
-	$result = mysql_query($query);
-	return mysql_num_rows($result);
+	$user_id = $_SESSION['user_id'];
+	$filtered_query = "SELECT * FROM `bugs` where id in (select bug_id from bughistory where assignedTo = {$user_id} and status in (select id from statuses where label='{$labelfilter}') group by bug_id having max(id)) order by createdAt desc;";
+	$rows = getAllBugList($filtered_query);
+	// TODO: fix the above WRONG query into actually resulting open bugs for user or redeign the schema to suit the purpose ... ho did someone from Yahoo say that filtering out stuff in php rather than in mysql improves speed... who was it !? bluesmoon?
+	$filtered = array();
+	$fi = 0;
+	for ($i=0; $i < count($rows); $i++){
+		if ($rows[$i]['status'] == $labelfilter){
+			$filtered[$fi++] = $rows[$i];
+		}
+	}
+	return count($filtered);
 }
 
 function getUserNameList(){
