@@ -148,9 +148,18 @@ function getMyBugList(){
 }
 
 function getMyFixedBugList(){
+	// CONCERN: too much redundant crap code
 	$user_id = $_SESSION['user_id'];
-	$filtered_query = "SELECT * FROM `bugs` where id in (select  bug_id from bughistory where assignedTo = {$user_id} and status in (select id from statuses where label='fixed') )order by createdAt desc;";
-	return getAllBugList($filtered_query);
+	$filtered_query = "SELECT * FROM `bugs` where id in (select bug_id from bughistory where assignedTo = {$user_id} and status in (select id from statuses where label='fixed') group by bug_id having max(id)) order by createdAt desc;";
+	$rows = getAllBugList($filtered_query);
+	$filtered = array();
+	$fi = 0;
+	for ($i=0; $i < count($rows); $i++){
+		if ($rows[$i]['status'] == 'fixed'){
+			$filtered[$fi++] = $rows[$i];
+		}
+	}
+	return $filtered;
 }
 
 function getMyOpenBugList(){
