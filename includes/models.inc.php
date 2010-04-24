@@ -126,6 +126,12 @@ function getMyFixedBugList(){
 	return getAllBugList($filtered_query);
 }
 
+function getMyOpenBugList(){
+	$user_id = $_SESSION['user_id'];
+	$filtered_query = "SELECT * FROM `bugs` where id in (select  bug_id from bughistory where assignedTo = {$user_id} and status in (select id from statuses where label='open') )order by createdAt desc;";
+	return getAllBugList($filtered_query);
+}
+
 function getProjectList(){
 	$projectlist = array();
 	$index = 0;

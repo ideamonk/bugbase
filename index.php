@@ -87,16 +87,17 @@ switch ($page){
 						$smarty->assign('subtitle','Bugs related to you');
 						$smarty->assign('buglist_heading', 'Bugs related to you');
 						$smarty->assign('buglist',getMyBugList());
-						$_SESSION['currentpage']='mybugs';
 						break;
-						
+					case 'self_open':
+						$smarty->assign('subtitle','Your open bugs');
+						$smarty->assign('buglist_heading', 'Currently open bugs assigned to you');
+						$smarty->assign('buglist',getMyOpenBugList());
+						break;
 					case 'self_fixed':
 						$smarty->assign('subtitle','Bugs fixed by you');
 						$smarty->assign('buglist_heading', 'Bugs fixed by you');
 						$smarty->assign('buglist',getMyFixedBugList());
-						$_SESSION['currentpage']='mybugs';
 						break;
-					
 				}
 			}
 			// hilighting is common to all

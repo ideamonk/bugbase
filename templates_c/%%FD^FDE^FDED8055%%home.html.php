@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2010-04-23 22:40:39
+<?php /* Smarty version 2.6.26, created on 2010-04-24 08:47:58
          compiled from home.html */ ?>
 <div id='contentSpacer'>
     <div id='leftBox'>
@@ -8,7 +8,7 @@
  </a> !
             </h3>
             <p class='userOpen'>
-                You have <a href='/index.php?page=list&filter=self'><?php echo $this->_tpl_vars['my_open_count']; ?>
+                You have <a href='/index.php?page=list&filter=self_open'><?php echo $this->_tpl_vars['my_open_count']; ?>
 </a> open bugs assigned to you.
             </p>
             <p class='userClose'>
