@@ -1,14 +1,23 @@
 <div id='contentSpacer' class='bugContainer'>
-	<h2>Bug/Feature/Defect #3424</h2>
+	<h2>{$bugdata[0].bugType} #{$bugdata[0].id}</h2>
 	<div class='bug_desc'>
-		<h3>Foo doesn't work under linux</h3>
+		<h3>{$bugdata[0].bugName}</h3>
 		<div>
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+			{$bugdata[0].description}
 		</div>
 		<div class='bug_desc_end'>
-			<p>Created by <span>Abhishek</span></p>
-			<p>Created on <span>Sat Apr 24 11:35:30 IST 2010</span></p>
-			<p>Keywords <span>foo</span><span>bar</span></p>
+			<p>Created by <span>{$bugdata[0].createdBy}</span></p>
+			<p>at <span>{$bugdata[0].createdAt}</span></p>
+			{if ($bugdata[0].affectedVersion != '')}
+				<p>affects version 
+					<span>{$bugdata[0].affectedVersion}</span>
+				</p>
+			{/if}
+			{if ($bugdata[0].affectedProject != '')}
+				<p>
+					{if ($bugdata[0].affectedVersion != '')} and {else} affects {/if}the project <span>{$bugdata[0].affectedProject}</span></p>
+			{/if}
+			<p>Keywords <span>{$bugdata[0].keywords}</span></p>
 		</div>
 	</div>
 	
@@ -25,37 +34,27 @@
 					<div class='h_timestamp'> Updated on </div>
 				</li>
 				
-				<li class='open'>
-					<div class='h_rid'> #1 </div>
-					<div class='h_status'> open </div>
-					<div class='h_priority'> low </div>
-					<div class='h_commenter'> Abhishek Mishra </div>
-					<div class='h_owner'> Ram Kumar </div>
-					<div class='h_timestamp'> Sat Apr 24 12:02:26 IST 2010 </div>
-				</li>
-				<li class='h_comment'>
-					<p>
-						<span class='bluebox'>Abhishek</span> says:
-						this bug needs to be fixed immediately.
-					</p>
-				</li>
-				
-				<li class='fixed'>
-					<div class='h_rid'> #1 </div>
-					<div class='h_status'> open </div>
-					<div class='h_priority'> low </div>
-					<div class='h_commenter'> Abhishek Mishra </div>
-					<div class='h_owner'> Ram Kumar </div>
-					<div class='h_timestamp'> Sat Apr 24 12:02:26 IST 2010 </div>
-				</li>
-				<li class='h_comment'>
-					<p>
-						<span class='bluebox'>Abhishek</span> says:
-						this bug needs to be fixed immediately.
-					</p>
-				</li>
+				{section name=i loop=$bughistory}
+					<li class='{$bughistory[i].status}'>
+						<div class='h_rid'> #{$i} </div>
+						<div class='h_status'> {$bughistory[i].status} </div>
+						<div class='h_priority'> {$bughistory[i].priority} </div>
+						<div class='h_commenter'> {$bughistory[i].addedBy} </div>
+						<div class='h_owner'> {$bughistory[i].assignedTo} </div>
+						<div class='h_timestamp'> {$bughistory[i].timestamp} </div>
+					</li>
+					{if ($bughistory[i].comment!='')}
+						<li class='h_comment'>
+							<p>
+								<span class='bluebox'>{$bughistory[i].addedBy}</span> says:
+								{$bughistory[i].comment}
+							</p>
+						</li>
+					{/if}
+				{/section}
 			</ul>
 		</div>
+		
 		<div class='h_revisionbox'>
 			<h3>Add a new revision</h3>
 			<form action='/index.php?page=updateBug' method='post'>
@@ -67,7 +66,7 @@
 							<div class='h_priority'> Priority </div>
 							<div class='h_commenter'> Revised by </div>
 							<div class='h_owner'> Assigned to </div>
-							<div class='h_timestamp'> Updated on </div>
+							<div class='h_timestamp'> Updated at </div>
 						</li>
 						<li class=''>
 							<div class='h_rid'> #10 </div>
@@ -86,8 +85,15 @@
 								</select>
 							</div>
 							<div class='h_commenter'> <span class='greenbox'>Abhishek</span> </div>
-							<div class='h_owner'> Ram Kumar </div>
-							<div class='h_timestamp'> <span class='greenbox'>today</span> </div>
+							<div class='h_owner'>
+								<select name='assignedTo'>
+									<option value='0'>no one</option>
+									{section name=i loop=$users}
+										<option value='{$users[i].id}'>{$users[i].name}</option>
+									{/section}
+								</select>
+							</div>
+							<div class='h_timestamp'> <span class='greenbox'>right now</span> </div>
 							
 							<div id='h_rev_comment'>
 								<h4>Comment:</h4>

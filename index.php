@@ -83,6 +83,7 @@ switch ($page){
 			$smarty->assign('buglist',getAllBugList());
 			$_SESSION['currentpage']='allbugs';
 		} else {
+			$_SESSION['currentpage']='mybugs';
 			switch ($_GET['filter']){
 				case 'self':
 					$smarty->assign('subtitle','Bugs related to you');
@@ -124,6 +125,10 @@ switch ($page){
 				$smarty->assign('buglist_heading', 'No Bug selected!');
 			} else {
 				// Show a bug's history and allow adding a revision
+				$smarty->assign('users', getUserNameList());
+				$smarty->assign('bugdata', getBugData($_GET['bug_id']));
+				$smarty->assign('bughistory', getBugHistory($_GET['bug_id']));
+				
 				// put in form data for select options
 				$formdata = getNewFormData();
 				foreach($formdata as $key=>$val){

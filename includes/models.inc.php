@@ -12,6 +12,15 @@ function getTableArray($tablename){
 	return $rows;
 }
 
+function getArrayFromResult($result){
+	$rows=array();
+	$index = 0;
+	while ($row = mysql_fetch_assoc($result)){
+		$rows[$index++] = $row;
+	}
+	return $rows;
+}
+
 function pickFromPost($values){
 	// picks values from POST and returns an associative array
 	$a = array();
@@ -48,7 +57,7 @@ function getNewFormData(){
 }
 
 function getAllBugList($myquery=""){
-	// A generic bug list generator, by default results in all bugs
+	// A generic bug list generator, merges bug and latest bughistory by default results in all bugs
 	$buglist = array();
 	$index = 0;
 	
@@ -108,6 +117,24 @@ function getAllBugList($myquery=""){
 			$row['project_name'] = 'unknown';
 		}
 		
+		// fill in createdBy for this bug
+		$query3 = "SELECT name from `users` where `id`={$row['createdBy']};";
+		$result3 = mysql_query($query3);
+		if ($row3 = mysql_fetch_assoc($result3)){
+			$row['createdBy'] = $row3['name'];
+		} else {
+			$row['createdBy'] = 'unknown';
+		}
+		
+		// fill in affectedProject for this
+		$query3 = "SELECT name from `projects` where `id`={$row['affectedProject']};";
+		$result3 = mysql_query($query3);
+		if ($row3 = mysql_fetch_assoc($result3)){
+			$row['affectedProject'] = $row3['name'];
+		} else {
+			$row['affectedProject'] = '';
+		}
+		
 		$buglist[$index++] = $row;				// add this row to buglist
 	}
 	return $buglist;
@@ -158,10 +185,55 @@ function getProjectList(){
 	return $projectlist;
 }
 
-
 function getMyBugCount($labelfilter){
 	// generic bug counter for user, counts according to status label.
 	$query = "SELECT count(id) from `bughistory` where `assignedTo`={$_SESSION['user_id']} and `status` = (select id from statuses where label='{$labelfilter}') group by bug_id;";
 	$result = mysql_query($query);
 	return mysql_num_rows($result);
+}
+
+function getUserNameList(){
+	// generates id, username list to be used in pages like bugpage, etc
+	return getTableArray('users');
+}
+
+function getBugData($bug_id){
+	$query="SELECT * from bugs where id = {$bug_id};";
+	$rows = getAllBugList($query);
+	return $rows;
+}
+
+function getBugHistory($bug_id){
+	$query = "SELECT * from `bughistory` where bug_id={$bug_id} order by id asc;";
+	$result = mysql_query($query);
+	$rows = getArrayFromResult($result);
+	
+	for ($i=0; $i<count($rows); $i++){
+		// update each numeric in these rows
+		// status
+		$query2 = "SELECT label from statuses where id={$rows[$i]['status']};";
+		$result2 = mysql_query($query2);
+		if ($row2 = mysql_fetch_array($result2)){
+			$rows[$i]['status'] = $row2[0];
+		}
+		// priority
+		$query2 = "SELECT label from priorities where id={$rows[$i]['priority']};";
+		$result2 = mysql_query($query2);
+		if ($row2 = mysql_fetch_array($result2)){
+			$rows[$i]['priority'] = $row2[0];
+		}
+		// addedBy
+		$query2 = "SELECT name from users where id={$rows[$i]['addedBy']};";
+		$result2 = mysql_query($query2);
+		if ($row2 = mysql_fetch_array($result2)){
+			$rows[$i]['addedBy'] = $row2[0];
+		}
+		// assigned to
+		$query2 = "SELECT name from users where id={$rows[$i]['assignedTo']};";
+		$result2 = mysql_query($query2);
+		if ($row2 = mysql_fetch_array($result2)){
+			$rows[$i]['assignedTo'] = $row2[0];
+		}
+	}
+	return $rows;
 }

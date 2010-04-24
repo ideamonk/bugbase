@@ -1,16 +1,34 @@
-<?php /* Smarty version 2.6.26, created on 2010-04-24 18:34:36
+<?php /* Smarty version 2.6.26, created on 2010-04-24 20:10:32
          compiled from bug.html */ ?>
 <div id='contentSpacer' class='bugContainer'>
-	<h2>Bug/Feature/Defect #3424</h2>
+	<h2><?php echo $this->_tpl_vars['bugdata'][0]['bugType']; ?>
+ #<?php echo $this->_tpl_vars['bugdata'][0]['id']; ?>
+</h2>
 	<div class='bug_desc'>
-		<h3>Foo doesn't work under linux</h3>
+		<h3><?php echo $this->_tpl_vars['bugdata'][0]['bugName']; ?>
+</h3>
 		<div>
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+			<?php echo $this->_tpl_vars['bugdata'][0]['description']; ?>
+
 		</div>
 		<div class='bug_desc_end'>
-			<p>Created by <span>Abhishek</span></p>
-			<p>Created on <span>Sat Apr 24 11:35:30 IST 2010</span></p>
-			<p>Keywords <span>foo</span><span>bar</span></p>
+			<p>Created by <span><?php echo $this->_tpl_vars['bugdata'][0]['createdBy']; ?>
+</span></p>
+			<p>at <span><?php echo $this->_tpl_vars['bugdata'][0]['createdAt']; ?>
+</span></p>
+			<?php if (( $this->_tpl_vars['bugdata'][0]['affectedVersion'] != '' )): ?>
+				<p>affects version 
+					<span><?php echo $this->_tpl_vars['bugdata'][0]['affectedVersion']; ?>
+</span>
+				</p>
+			<?php endif; ?>
+			<?php if (( $this->_tpl_vars['bugdata'][0]['affectedProject'] != '' )): ?>
+				<p>
+					<?php if (( $this->_tpl_vars['bugdata'][0]['affectedVersion'] != '' )): ?> and <?php else: ?> affects <?php endif; ?>the project <span><?php echo $this->_tpl_vars['bugdata'][0]['affectedProject']; ?>
+</span></p>
+			<?php endif; ?>
+			<p>Keywords <span><?php echo $this->_tpl_vars['bugdata'][0]['keywords']; ?>
+</span></p>
 		</div>
 	</div>
 	
@@ -27,37 +45,59 @@
 					<div class='h_timestamp'> Updated on </div>
 				</li>
 				
-				<li class='open'>
-					<div class='h_rid'> #1 </div>
-					<div class='h_status'> open </div>
-					<div class='h_priority'> low </div>
-					<div class='h_commenter'> Abhishek Mishra </div>
-					<div class='h_owner'> Ram Kumar </div>
-					<div class='h_timestamp'> Sat Apr 24 12:02:26 IST 2010 </div>
-				</li>
-				<li class='h_comment'>
-					<p>
-						<span class='bluebox'>Abhishek</span> says:
-						this bug needs to be fixed immediately.
-					</p>
-				</li>
-				
-				<li class='fixed'>
-					<div class='h_rid'> #1 </div>
-					<div class='h_status'> open </div>
-					<div class='h_priority'> low </div>
-					<div class='h_commenter'> Abhishek Mishra </div>
-					<div class='h_owner'> Ram Kumar </div>
-					<div class='h_timestamp'> Sat Apr 24 12:02:26 IST 2010 </div>
-				</li>
-				<li class='h_comment'>
-					<p>
-						<span class='bluebox'>Abhishek</span> says:
-						this bug needs to be fixed immediately.
-					</p>
-				</li>
+				<?php unset($this->_sections['i']);
+$this->_sections['i']['name'] = 'i';
+$this->_sections['i']['loop'] = is_array($_loop=$this->_tpl_vars['bughistory']) ? count($_loop) : max(0, (int)$_loop); unset($_loop);
+$this->_sections['i']['show'] = true;
+$this->_sections['i']['max'] = $this->_sections['i']['loop'];
+$this->_sections['i']['step'] = 1;
+$this->_sections['i']['start'] = $this->_sections['i']['step'] > 0 ? 0 : $this->_sections['i']['loop']-1;
+if ($this->_sections['i']['show']) {
+    $this->_sections['i']['total'] = $this->_sections['i']['loop'];
+    if ($this->_sections['i']['total'] == 0)
+        $this->_sections['i']['show'] = false;
+} else
+    $this->_sections['i']['total'] = 0;
+if ($this->_sections['i']['show']):
+
+            for ($this->_sections['i']['index'] = $this->_sections['i']['start'], $this->_sections['i']['iteration'] = 1;
+                 $this->_sections['i']['iteration'] <= $this->_sections['i']['total'];
+                 $this->_sections['i']['index'] += $this->_sections['i']['step'], $this->_sections['i']['iteration']++):
+$this->_sections['i']['rownum'] = $this->_sections['i']['iteration'];
+$this->_sections['i']['index_prev'] = $this->_sections['i']['index'] - $this->_sections['i']['step'];
+$this->_sections['i']['index_next'] = $this->_sections['i']['index'] + $this->_sections['i']['step'];
+$this->_sections['i']['first']      = ($this->_sections['i']['iteration'] == 1);
+$this->_sections['i']['last']       = ($this->_sections['i']['iteration'] == $this->_sections['i']['total']);
+?>
+					<li class='<?php echo $this->_tpl_vars['bughistory'][$this->_sections['i']['index']]['status']; ?>
+'>
+						<div class='h_rid'> #<?php echo $this->_tpl_vars['i']; ?>
+ </div>
+						<div class='h_status'> <?php echo $this->_tpl_vars['bughistory'][$this->_sections['i']['index']]['status']; ?>
+ </div>
+						<div class='h_priority'> <?php echo $this->_tpl_vars['bughistory'][$this->_sections['i']['index']]['priority']; ?>
+ </div>
+						<div class='h_commenter'> <?php echo $this->_tpl_vars['bughistory'][$this->_sections['i']['index']]['addedBy']; ?>
+ </div>
+						<div class='h_owner'> <?php echo $this->_tpl_vars['bughistory'][$this->_sections['i']['index']]['assignedTo']; ?>
+ </div>
+						<div class='h_timestamp'> <?php echo $this->_tpl_vars['bughistory'][$this->_sections['i']['index']]['timestamp']; ?>
+ </div>
+					</li>
+					<?php if (( $this->_tpl_vars['bughistory'][$this->_sections['i']['index']]['comment'] != '' )): ?>
+						<li class='h_comment'>
+							<p>
+								<span class='bluebox'><?php echo $this->_tpl_vars['bughistory'][$this->_sections['i']['index']]['addedBy']; ?>
+</span> says:
+								<?php echo $this->_tpl_vars['bughistory'][$this->_sections['i']['index']]['comment']; ?>
+
+							</p>
+						</li>
+					<?php endif; ?>
+				<?php endfor; endif; ?>
 			</ul>
 		</div>
+		
 		<div class='h_revisionbox'>
 			<h3>Add a new revision</h3>
 			<form action='/index.php?page=updateBug' method='post'>
@@ -69,7 +109,7 @@
 							<div class='h_priority'> Priority </div>
 							<div class='h_commenter'> Revised by </div>
 							<div class='h_owner'> Assigned to </div>
-							<div class='h_timestamp'> Updated on </div>
+							<div class='h_timestamp'> Updated at </div>
 						</li>
 						<li class=''>
 							<div class='h_rid'> #10 </div>
@@ -138,8 +178,40 @@ $this->_sections['i']['last']       = ($this->_sections['i']['iteration'] == $th
 								</select>
 							</div>
 							<div class='h_commenter'> <span class='greenbox'>Abhishek</span> </div>
-							<div class='h_owner'> Ram Kumar </div>
-							<div class='h_timestamp'> <span class='greenbox'>today</span> </div>
+							<div class='h_owner'>
+								<select name='assignedTo'>
+									<option value='0'>no one</option>
+									<?php unset($this->_sections['i']);
+$this->_sections['i']['name'] = 'i';
+$this->_sections['i']['loop'] = is_array($_loop=$this->_tpl_vars['users']) ? count($_loop) : max(0, (int)$_loop); unset($_loop);
+$this->_sections['i']['show'] = true;
+$this->_sections['i']['max'] = $this->_sections['i']['loop'];
+$this->_sections['i']['step'] = 1;
+$this->_sections['i']['start'] = $this->_sections['i']['step'] > 0 ? 0 : $this->_sections['i']['loop']-1;
+if ($this->_sections['i']['show']) {
+    $this->_sections['i']['total'] = $this->_sections['i']['loop'];
+    if ($this->_sections['i']['total'] == 0)
+        $this->_sections['i']['show'] = false;
+} else
+    $this->_sections['i']['total'] = 0;
+if ($this->_sections['i']['show']):
+
+            for ($this->_sections['i']['index'] = $this->_sections['i']['start'], $this->_sections['i']['iteration'] = 1;
+                 $this->_sections['i']['iteration'] <= $this->_sections['i']['total'];
+                 $this->_sections['i']['index'] += $this->_sections['i']['step'], $this->_sections['i']['iteration']++):
+$this->_sections['i']['rownum'] = $this->_sections['i']['iteration'];
+$this->_sections['i']['index_prev'] = $this->_sections['i']['index'] - $this->_sections['i']['step'];
+$this->_sections['i']['index_next'] = $this->_sections['i']['index'] + $this->_sections['i']['step'];
+$this->_sections['i']['first']      = ($this->_sections['i']['iteration'] == 1);
+$this->_sections['i']['last']       = ($this->_sections['i']['iteration'] == $this->_sections['i']['total']);
+?>
+										<option value='<?php echo $this->_tpl_vars['users'][$this->_sections['i']['index']]['id']; ?>
+'><?php echo $this->_tpl_vars['users'][$this->_sections['i']['index']]['name']; ?>
+</option>
+									<?php endfor; endif; ?>
+								</select>
+							</div>
+							<div class='h_timestamp'> <span class='greenbox'>right now</span> </div>
 							
 							<div id='h_rev_comment'>
 								<h4>Comment:</h4>
