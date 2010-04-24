@@ -15,7 +15,8 @@
 			{/if}
 			{if ($bugdata[0].affectedProject != '')}
 				<p>
-					{if ($bugdata[0].affectedVersion != '')} and {else} affects {/if}the project <span>{$bugdata[0].affectedProject}</span></p>
+					{if ($bugdata[0].affectedVersion != '')} and {else} affects {/if}the project <span>{$bugdata[0].affectedProject}</span>
+				</p>
 			{/if}
 			<p>Keywords <span>{$bugdata[0].keywords}</span></p>
 		</div>
