@@ -1,5 +1,7 @@
-<?php /* Smarty version 2.6.26, created on 2010-04-24 20:10:32
+<?php /* Smarty version 2.6.26, created on 2010-04-24 21:54:28
          compiled from bug.html */ ?>
+<?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'replace', 'bug.html', 39, false),)), $this); ?>
 <div id='contentSpacer' class='bugContainer'>
 	<h2><?php echo $this->_tpl_vars['bugdata'][0]['bugType']; ?>
  #<?php echo $this->_tpl_vars['bugdata'][0]['id']; ?>
@@ -25,7 +27,8 @@
 			<?php if (( $this->_tpl_vars['bugdata'][0]['affectedProject'] != '' )): ?>
 				<p>
 					<?php if (( $this->_tpl_vars['bugdata'][0]['affectedVersion'] != '' )): ?> and <?php else: ?> affects <?php endif; ?>the project <span><?php echo $this->_tpl_vars['bugdata'][0]['affectedProject']; ?>
-</span></p>
+</span>
+				</p>
 			<?php endif; ?>
 			<p>Keywords <span><?php echo $this->_tpl_vars['bugdata'][0]['keywords']; ?>
 </span></p>
@@ -69,9 +72,9 @@ $this->_sections['i']['index_next'] = $this->_sections['i']['index'] + $this->_s
 $this->_sections['i']['first']      = ($this->_sections['i']['iteration'] == 1);
 $this->_sections['i']['last']       = ($this->_sections['i']['iteration'] == $this->_sections['i']['total']);
 ?>
-					<li class='<?php echo $this->_tpl_vars['bughistory'][$this->_sections['i']['index']]['status']; ?>
+					<li class='<?php echo ((is_array($_tmp=$this->_tpl_vars['bughistory'][$this->_sections['i']['index']]['status'])) ? $this->_run_mod_handler('replace', true, $_tmp, ' ', '') : smarty_modifier_replace($_tmp, ' ', '')); ?>
 '>
-						<div class='h_rid'> #<?php echo $this->_tpl_vars['i']; ?>
+						<div class='h_rid'> #<?php echo $this->_sections['i']['index']+1; ?>
  </div>
 						<div class='h_status'> <?php echo $this->_tpl_vars['bughistory'][$this->_sections['i']['index']]['status']; ?>
  </div>
@@ -79,8 +82,8 @@ $this->_sections['i']['last']       = ($this->_sections['i']['iteration'] == $th
  </div>
 						<div class='h_commenter'> <?php echo $this->_tpl_vars['bughistory'][$this->_sections['i']['index']]['addedBy']; ?>
  </div>
-						<div class='h_owner'> <?php echo $this->_tpl_vars['bughistory'][$this->_sections['i']['index']]['assignedTo']; ?>
- </div>
+						<div class='h_owner'> <?php if (( $this->_tpl_vars['bughistory'][$this->_sections['i']['index']]['assignedTo'] != '0' )): ?> <?php echo $this->_tpl_vars['bughistory'][$this->_sections['i']['index']]['assignedTo']; ?>
+ <?php else: ?> no one <?php endif; ?> </div>
 						<div class='h_timestamp'> <?php echo $this->_tpl_vars['bughistory'][$this->_sections['i']['index']]['timestamp']; ?>
  </div>
 					</li>
@@ -97,10 +100,15 @@ $this->_sections['i']['last']       = ($this->_sections['i']['iteration'] == $th
 				<?php endfor; endif; ?>
 			</ul>
 		</div>
-		
+	
 		<div class='h_revisionbox'>
+			<div id='validationErrors' class='validationError'></div>
 			<h3>Add a new revision</h3>
-			<form action='/index.php?page=updateBug' method='post'>
+			<form action='/index.php?page=updateBug' method='post' id='frmBugStatus'>
+				<input type='hidden' value='<?php echo $this->_tpl_vars['bugdata'][0]['id']; ?>
+' name='bug_id' />
+				<input type='hidden' value='<?php echo $this->_tpl_vars['user_id']; ?>
+' name='addedBy' />
 				<div id='buglist'>
 					<ul>
 						<li class='heading'>
@@ -140,7 +148,7 @@ $this->_sections['i']['first']      = ($this->_sections['i']['iteration'] == 1);
 $this->_sections['i']['last']       = ($this->_sections['i']['iteration'] == $this->_sections['i']['total']);
 ?>
 										<option value='<?php echo $this->_tpl_vars['statuses'][$this->_sections['i']['index']]['id']; ?>
-'><?php echo $this->_tpl_vars['statuses'][$this->_sections['i']['index']]['label']; ?>
+' <?php if (( $this->_tpl_vars['statuses'][$this->_sections['i']['index']]['label'] == $this->_tpl_vars['bugdata'][0]['status'] )): ?> selected <?php endif; ?> ><?php echo $this->_tpl_vars['statuses'][$this->_sections['i']['index']]['label']; ?>
 </option>
 									<?php endfor; endif; ?>
 								</select>
@@ -172,7 +180,7 @@ $this->_sections['i']['first']      = ($this->_sections['i']['iteration'] == 1);
 $this->_sections['i']['last']       = ($this->_sections['i']['iteration'] == $this->_sections['i']['total']);
 ?>
 										<option value='<?php echo $this->_tpl_vars['priorities'][$this->_sections['i']['index']]['id']; ?>
-'><?php echo $this->_tpl_vars['priorities'][$this->_sections['i']['index']]['label']; ?>
+' <?php if (( $this->_tpl_vars['priorities'][$this->_sections['i']['index']]['label'] == $this->_tpl_vars['bugdata'][0]['priority'] )): ?> selected <?php endif; ?>><?php echo $this->_tpl_vars['priorities'][$this->_sections['i']['index']]['label']; ?>
 </option>
 									<?php endfor; endif; ?>
 								</select>
@@ -206,7 +214,7 @@ $this->_sections['i']['first']      = ($this->_sections['i']['iteration'] == 1);
 $this->_sections['i']['last']       = ($this->_sections['i']['iteration'] == $this->_sections['i']['total']);
 ?>
 										<option value='<?php echo $this->_tpl_vars['users'][$this->_sections['i']['index']]['id']; ?>
-'><?php echo $this->_tpl_vars['users'][$this->_sections['i']['index']]['name']; ?>
+' <?php if (( $this->_tpl_vars['users'][$this->_sections['i']['index']]['id'] == $this->_tpl_vars['bugdata'][0]['assignedTo'] )): ?> selected <?php endif; ?> ><?php echo $this->_tpl_vars['users'][$this->_sections['i']['index']]['name']; ?>
 </option>
 									<?php endfor; endif; ?>
 								</select>
@@ -215,13 +223,10 @@ $this->_sections['i']['last']       = ($this->_sections['i']['iteration'] == $th
 							
 							<div id='h_rev_comment'>
 								<h4>Comment:</h4>
-								<textarea name='txtComment' id='txtComment'></textarea>
+								<textarea name='comment' id='txtComment'></textarea>
 							</div>
-							<button type='button' onclick='javascript:validateAddNewBug()'>
+							<button type='button' onclick='javascript:validateBugStatus()'>
 								<strong>Add</strong>
-							</button>
-							<button type='button' onclick='javascript:addNewCancel()'>
-								<strong>Cancel</strong>
 							</button>
 						</li>
 					</ul>

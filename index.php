@@ -124,6 +124,8 @@ switch ($page){
 			if (!isset($_GET['bug_id'])){
 				$smarty->assign('buglist_heading', 'No Bug selected!');
 			} else {
+				$smarty->assign('scripts', array('/static/scripts/bugpage.js'));
+				
 				// Show a bug's history and allow adding a revision
 				$smarty->assign('users', getUserNameList());
 				$smarty->assign('bugdata', getBugData($_GET['bug_id']));
@@ -135,6 +137,13 @@ switch ($page){
 					$smarty->assign($key, $val);
 				}
 			}
+			break;
+		
+		case 'updateBug':
+			// add a new bug history
+			if (!loggedIn()){ header("Location: $default_location"); }
+			addBugHistory();
+			header ("Location: /index.php?page=bug&bug_id={$_POST['bug_id']}");
 			break;
 			
 		default:

@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2010-04-22 03:00:50
+<?php /* Smarty version 2.6.26, created on 2010-04-24 21:12:19
          compiled from addedit.html */ ?>
 <div id='contentSpacer'>
 	<h2>Add a new bug</h2>
@@ -187,9 +187,6 @@ $this->_sections['i']['last']       = ($this->_sections['i']['iteration'] == $th
 		</div>
 		<button type='button' onclick='javascript:validateAddNewBug()'>
 			<strong>Add</strong>
-		</button>
-		<button type='button' onclick='javascript:addNewCancel()'>
-			<strong>Cancel</strong>
 		</button>
 	</form>
 </div>
