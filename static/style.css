@@ -263,28 +263,68 @@ textarea:focus {
 
 
 /* bug description page */
+
+#buglist ul li .h_rid{ width:5%; }
+#buglist ul li .h_status{ width:10%; }
+#buglist ul li .h_priority{ width:10%; }
+#buglist ul li .h_commenter{ width:22%; }
+#buglist ul li .h_owner{ width:22%; }
+#buglist ul li .h_timestamp{ width:20%; }
+
+#buglist ul li.h_comment{
+	background:#fff;
+	border-radius: 5px;
+	border:1px solid #ddd;
+}
 .bug_desc {
 	margin:5px;
 	padding:5px;
 }
 .bug_desc h3 {
-	background: #efefef -webkit-gradient(linear, left top, left bottom, from(#efefef), to(#BCC7CC));
+	background: #acb7bc;
 	padding:5px;
 	border-radius:5px 5px 0px 0px;
+	color:#fff;
+	text-shadow:1px 1px 2px #8c878c;
 }
 .bug_desc div {
 	background: #efefef;
-	border-radius:0px 0px 5px 5px;
 	padding:10px;
 }
-.statusline{}
-.statusline p {
-	display:inline-block;
-	margin:5px;
-	padding:2px 5px;
+.bug_desc .bug_desc_end{
+	border-radius:0px 0px 10px 5px;
+	background:#dddddd;
+	padding:5px;
+	border-top:#eee 1px solid;
 }
-.statusline p span{
+.bug_desc .bug_desc_end p { 
+	display:inline-block; 
+	margin:5px 5px 5px 0px;
+}
+.bughistory { margin:10px; }
+
+.bug_desc .bug_desc_end p span, .bluebox{
 	border-radius:5px;
 	padding:2px 5px;
-	background: #D6EBFF -webkit-gradient(linear, left top, left bottom, from(#D6EBFF), to(#9DDCF5), color-stop(0.4, #D6EBFF));
+	margin:2px 5px;
+	border:1px solid #518cc6;
+	color:white;
+	font-weight:bold;
+	text-shadow: -1px -1px 1px #366694;
+	background: #599bdc -webkit-gradient(linear, left top, left bottom, from(#599bdc), to(#3072b3));
 }
+
+.greenbox{
+	border-radius:5px;
+	padding:2px 5px;
+	margin:2px 5px;
+	border:1px solid #5bbb65;
+	color:white;
+	font-weight:bold;
+	text-shadow: -1px -1px 1px #44984d;
+	background: #599bdc -webkit-gradient(linear, left top, left bottom, from(#65d070), to(#3ea949));
+	
+	
+}
+
+.h_comment p { margin-left:20px; margin-top:10px; }
