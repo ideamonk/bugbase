@@ -196,7 +196,21 @@ switch ($page){
 			addStatus();
 			header ("Location: /index.php?page=admin");
 			break;
-				
+		
+		case 'delCat':
+			if (!loggedIn()){ header("Location: $default_location"); }
+			if (!isAdmin()){ header("Location: $default_location"); }		// quitely let them wonder
+			delCat($_GET['cat']);
+			header ("Location: /index.php?page=admin");
+			break;
+		
+		case 'addCat':
+			if (!loggedIn()){ header("Location: $default_location"); }
+			if (!isAdmin()){ header("Location: $default_location"); }		// quitely let them wonder
+			addCat();
+			header ("Location: /index.php?page=admin");
+			break;
+			
 		default:
 			header("Location: /index.php?page=home");
 }

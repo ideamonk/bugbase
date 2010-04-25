@@ -21,7 +21,7 @@
 				<p>{$categories[i].label} <span><a href="/index.php?page=delCat&cat={$categories[i].id}">del</a></span> </p>
 			{/section}
 			<div>
-				<form action='' method='post'>
+				<form action='/index.php?page=addCat' method='post'>
 					<input type='text' name='label'/>
 					<button type='submit'>+</button>
 				</form>

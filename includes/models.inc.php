@@ -356,7 +356,12 @@ function delStatus($status_id){
 	mysql_query($query) or die ("Failed to delete status");
 }
 
-function addStatus(){
-	mysql_query("INSERT into statuses VALUES(NULL, '{$_POST['label']}');") or die("Trying ... nigga style"); 
+function delCat($cat_id){
+	$query = "delete from categories where id=$cat_id;"; 
+	mysql_query($query) or die ("Failed to delete category");
+}
+
+function addCat(){
+	mysql_query("INSERT into categories VALUES(NULL, '{$_POST['label']}');") or die(" cat Trying ... nigga style"); 
 }
 ?>
