@@ -39,7 +39,7 @@ function addNewBug(){
 	
 	$new_bug_id = mysql_insert_id();
 	
-	$query = "INSERT INTO `bugbase`.`bughistory` (`id`, `bug_id`, `addedBy`, `timestamp`, `status`, `comment`, `assignedTo`, `priority`) VALUES (NULL, '$new_bug_id', '{$_SESSION['user_id']}', CURRENT_TIMESTAMP, '{$bug['status']}', '', '', '{$bug['priority']}');";
+	$query = "INSERT INTO `bugbase`.`bughistory` (`id`, `bug_id`, `addedBy`, `timestamp`, `status`, `comment`, `assignedTo`, `priority`) VALUES (NULL, '$new_bug_id', '{$_SESSION['user_id']}', CURRENT_TIMESTAMP, '{$bug['status']}', '', '0', '{$bug['priority']}');";
 	$result = mysql_query($query) or die ("Failed to insert '{$bug['bugName']}'");
 	
 	return $new_bug_id;
