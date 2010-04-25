@@ -126,6 +126,12 @@ body {
 	padding:10px;
 	margin:5px;
 }
+.welcomeReport div input {
+	width:88%;
+}
+.welcomeReport div button{
+	width:10%;
+}
 .welcomeReport p a {
 	font-size:1.5em;
 	font-weight:bold;

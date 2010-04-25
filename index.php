@@ -175,6 +175,12 @@ switch ($page){
 			if (!isAdmin()){ header("Location: $default_location"); }		// quitely let them wonder
 			$template = 'admin.html';
 			$_SESSION['currentpage']='admin';
+			$smarty->assign('subtitle', 'Administration');
+			$smarty->assign('users', getUserNameList());
+			$formdata = getNewFormData();
+			foreach($formdata as $key=>$val){
+				$smarty->assign($key, $val);
+			}
 			break;
 			
 		default:
