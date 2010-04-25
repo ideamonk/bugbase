@@ -137,6 +137,25 @@ body {
 	font-weight:bold;
 	border-bottom:1px #444 dotted;
 }
+.welcomeReport p span a { /* specific to admin pages */
+	font-size:0.7em;
+	font-weight:normal;
+	border-bottom:none;
+	color:#000;
+	background:#fff;
+	border-radius:5px;
+	padding:3px 10px;
+	float:right;
+}
+.welcomeReport p span a:hover { /* specific to admin pages */
+	font-size:0.8em;
+	font-weight:normal;
+	border-bottom:none;
+	color:#000;
+	background:#faa;
+	border-radius:5px;
+	padding:3px 10px;	
+}
 .welcomeReport p a:visited {
 	color:#000;
 	}

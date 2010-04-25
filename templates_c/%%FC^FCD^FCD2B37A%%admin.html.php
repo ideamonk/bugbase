@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2010-04-26 02:32:14
+<?php /* Smarty version 2.6.26, created on 2010-04-26 02:41:11
          compiled from admin.html */ ?>
 <div id='contentSpacer'>
 	<h2>Bug<sup>Base</sup> Administration</h2>
@@ -31,7 +31,8 @@ $this->_sections['i']['first']      = ($this->_sections['i']['iteration'] == 1);
 $this->_sections['i']['last']       = ($this->_sections['i']['iteration'] == $this->_sections['i']['total']);
 ?>
 				<p><?php echo $this->_tpl_vars['statuses'][$this->_sections['i']['index']]['label']; ?>
-</p>
+ <span><a href="/index.php?page=delStatus&status=<?php echo $this->_tpl_vars['statuses'][$this->_sections['i']['index']]['id']; ?>
+">del</a></span> </p>
 			<?php endfor; endif; ?>
 			<div>
 				<form action='' method='post'>
@@ -68,7 +69,8 @@ $this->_sections['i']['first']      = ($this->_sections['i']['iteration'] == 1);
 $this->_sections['i']['last']       = ($this->_sections['i']['iteration'] == $this->_sections['i']['total']);
 ?>
 				<p><?php echo $this->_tpl_vars['categories'][$this->_sections['i']['index']]['label']; ?>
-</p>
+ <span><a href="/index.php?page=delCat&cat=<?php echo $this->_tpl_vars['categories'][$this->_sections['i']['index']]['id']; ?>
+">del</a></span> </p>
 			<?php endfor; endif; ?>
 			<div>
 				<form action='' method='post'>
@@ -107,7 +109,8 @@ $this->_sections['i']['first']      = ($this->_sections['i']['iteration'] == 1);
 $this->_sections['i']['last']       = ($this->_sections['i']['iteration'] == $this->_sections['i']['total']);
 ?>
 				<p><?php echo $this->_tpl_vars['priorities'][$this->_sections['i']['index']]['label']; ?>
-</p>
+ <span><a href="/index.php?page=delPri&pri=<?php echo $this->_tpl_vars['priorities'][$this->_sections['i']['index']]['id']; ?>
+">del</a></span> </p>
 			<?php endfor; endif; ?>
 			<div>
 				<form action='' method='post'>
@@ -144,7 +147,8 @@ $this->_sections['i']['first']      = ($this->_sections['i']['iteration'] == 1);
 $this->_sections['i']['last']       = ($this->_sections['i']['iteration'] == $this->_sections['i']['total']);
 ?>
 				<p><?php echo $this->_tpl_vars['users'][$this->_sections['i']['index']]['name']; ?>
-</p>
+ <span><a href="/index.php?page=delUser&uid=<?php echo $this->_tpl_vars['users'][$this->_sections['i']['index']]['id']; ?>
+">del</a></span></p>
 			<?php endfor; endif; ?>
 		</div>
 	</div>

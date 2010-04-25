@@ -5,7 +5,7 @@
 		<div class='welcomeReport'>
 			<h3>Statuses</h3>
 			{section name=i loop=$statuses}
-				<p>{$statuses[i].label}</p>
+				<p>{$statuses[i].label} <span><a href="/index.php?page=delStatus&status={$statuses[i].id}">del</a></span> </p>
 			{/section}
 			<div>
 				<form action='' method='post'>
@@ -18,7 +18,7 @@
 		<div class='welcomeReport'>
 			<h3>Categories</h3>
 			{section name=i loop=$categories}
-				<p>{$categories[i].label}</p>
+				<p>{$categories[i].label} <span><a href="/index.php?page=delCat&cat={$categories[i].id}">del</a></span> </p>
 			{/section}
 			<div>
 				<form action='' method='post'>
@@ -33,7 +33,7 @@
 		<div class='welcomeReport'>
 			<h3>Priorities</h3>
 			{section name=i loop=$priorities}
-				<p>{$priorities[i].label}</p>
+				<p>{$priorities[i].label} <span><a href="/index.php?page=delPri&pri={$priorities[i].id}">del</a></span> </p>
 			{/section}
 			<div>
 				<form action='' method='post'>
@@ -46,7 +46,7 @@
 		<div class='welcomeReport'>
 			<h3>Users</h3>
 			{section name=i loop=$users}
-				<p>{$users[i].name}</p>
+				<p>{$users[i].name} <span><a href="/index.php?page=delUser&uid={$users[i].id}">del</a></span></p>
 			{/section}
 		</div>
 	</div>
