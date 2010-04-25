@@ -5,7 +5,7 @@
 			<li class='heading'>
 				<div class='l_pid'> Id </div>
 				<div class='l_projectname'> Project name </div>
-				<div class='l_owner'> Manager </div>
+				<div class='l_owner'> Owner </div>
 				<div class='l_open'> Open bugs </div>
 				<div class='l_keywords'> Keywords </div>
 			</li>
@@ -30,7 +30,11 @@
 			{section name=i loop=$projectlist}
 				<li class='l_project'>
 					<div class='l_pid'> #{$projectlist[i].id} </div>
-					<div class='l_projectname'>{$projectlist[i].name}</div>
+					<div class='l_projectname'>
+						<a href='/index.php?page=list&filter=project&project_id={$projectlist[i].id}'>
+							{$projectlist[i].name}
+						</a>
+					</div>
 					<div class='l_owner'>{$projectlist[i].owner}</div>
 					<div class='l_open'>{$projectlist[i].open_count}</div>
 					<div class='l_keywords'>{$projectlist[i].keywords}</div>

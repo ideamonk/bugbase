@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2010-04-23 21:48:28
+<?php /* Smarty version 2.6.26, created on 2010-04-25 13:44:05
          compiled from projectlist.html */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'replace', 'projectlist.html', 14, false),array('modifier', 'date_format', 'projectlist.html', 26, false),)), $this); ?>
@@ -91,8 +91,13 @@ $this->_sections['i']['last']       = ($this->_sections['i']['iteration'] == $th
 				<li class='l_project'>
 					<div class='l_pid'> #<?php echo $this->_tpl_vars['projectlist'][$this->_sections['i']['index']]['id']; ?>
  </div>
-					<div class='l_projectname'><?php echo $this->_tpl_vars['projectlist'][$this->_sections['i']['index']]['name']; ?>
-</div>
+					<div class='l_projectname'>
+						<a href='/index.php?page=list&filter=project&project_id=<?php echo $this->_tpl_vars['projectlist'][$this->_sections['i']['index']]['id']; ?>
+'>
+							<?php echo $this->_tpl_vars['projectlist'][$this->_sections['i']['index']]['name']; ?>
+
+						</a>
+					</div>
 					<div class='l_owner'><?php echo $this->_tpl_vars['projectlist'][$this->_sections['i']['index']]['owner']; ?>
 </div>
 					<div class='l_open'><?php echo $this->_tpl_vars['projectlist'][$this->_sections['i']['index']]['open_count']; ?>
