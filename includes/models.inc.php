@@ -355,13 +355,23 @@ function delStatus($status_id){
 	$query = "delete from statuses where id=$status_id;"; 
 	mysql_query($query) or die ("Failed to delete status");
 }
+function addStatus(){
+	mysql_query("INSERT into statuses VALUES(NULL, '{$_POST['label']}');") or die(" cat Trying ... nigga style"); 
+}
 
 function delCat($cat_id){
 	$query = "delete from categories where id=$cat_id;"; 
 	mysql_query($query) or die ("Failed to delete category");
 }
-
 function addCat(){
 	mysql_query("INSERT into categories VALUES(NULL, '{$_POST['label']}');") or die(" cat Trying ... nigga style"); 
+}
+
+function delPri($pri_id){
+	$query = "delete from priorities where id=$pri_id;"; 
+	mysql_query($query) or die ("Failed to delete category");
+}
+function addPri(){
+	mysql_query("INSERT into priorities VALUES(NULL, '{$_POST['label']}');") or die(" cat Trying ... nigga style"); 
 }
 ?>

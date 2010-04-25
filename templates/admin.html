@@ -36,7 +36,7 @@
 				<p>{$priorities[i].label} <span><a href="/index.php?page=delPri&pri={$priorities[i].id}">del</a></span> </p>
 			{/section}
 			<div>
-				<form action='' method='post'>
+				<form action='/index.php?page=addPri' method='post'>
 					<input type='text' name='label'/>
 					<button type='submit'>+</button>
 				</form>

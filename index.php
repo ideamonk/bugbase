@@ -211,6 +211,20 @@ switch ($page){
 			header ("Location: /index.php?page=admin");
 			break;
 			
+		case 'delPri':
+			if (!loggedIn()){ header("Location: $default_location"); }
+			if (!isAdmin()){ header("Location: $default_location"); }		// quitely let them wonder
+			delPri($_GET['pri']);
+			header ("Location: /index.php?page=admin");
+			break;
+		
+		case 'addPri':
+			if (!loggedIn()){ header("Location: $default_location"); }
+			if (!isAdmin()){ header("Location: $default_location"); }		// quitely let them wonder
+			addPri();
+			header ("Location: /index.php?page=admin");
+			break;
+			
 		default:
 			header("Location: /index.php?page=home");
 }
