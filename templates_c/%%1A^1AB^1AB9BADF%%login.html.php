@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2010-04-18 16:41:44
+<?php /* Smarty version 2.6.26, created on 2010-04-26 03:23:04
          compiled from login.html */ ?>
   <div id='leftBox'>
     <div class='boxContent'>
@@ -9,15 +9,16 @@
           Say hello to Bugbase. Your one stop shop for managing issues and bugs related to your project.
         </p>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          Default admin account - admin<br />
+          
         </p>
       </div>
     </div>
   </div>
   <div id='rightBox'>
     <div class='boxContent'>
-      <h3>Login</h3>
       <form id='loginForm' method='post' action='/index.php?page=confirm'>
+		<h3>Login</h3>
         <label for='username'>Username: </label>
         <input type='text' name='username' />
         <label for='password'>Password: </label>
@@ -28,8 +29,27 @@
         <?php endif; ?>
         <button type='submit'> Login </button>
         <span>
-          <a href='/index.php?page=register' title="Don't have an account? Just create one.">Register new account</a> |
-          <a href='/index.php?page=forgot' title='Forgot your password?'>Forgot password?</a>
+          <a href='javascript:$("#regForm").show("medium");$("#loginForm").hide()' title="Don't have an account? Just create one.">Register new account</a>
+        </span>
+      </form>
+      
+      <form id='regForm' method='post' action='/index.php?page=regUser'>
+		<h3>Register</h3>
+		<label for='name'>Your name: </label>
+        <input type='text' name='name' />
+        <label for='username'>New Username: </label>
+        <input type='text' name='username' />
+        <label for='password'>Password: </label>
+        <input type='password' name='password'/>
+        <label for='password'>Email id: </label>
+        <input type='password' name='email'/>
+        <?php if (isset ( $this->_tpl_vars['reg_error'] )): ?>
+			<div class='errorflash'> <?php echo $this->_tpl_vars['login_error']; ?>
+ </div>
+        <?php endif; ?>
+        <button type='submit'> Register </button>
+        <span>
+          <a href='javascript:$("#regForm").hide("fast");$("#loginForm").show("medium")'>hide</a>
         </span>
       </form>
     </div>

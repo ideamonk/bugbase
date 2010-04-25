@@ -96,10 +96,11 @@ body {
   -moz-border-radius:15px;
   margin-bottom:10px;
 }
-#loginForm, #frmReportBug { padding:10px;}
-#loginForm label, #frmReportBug .frmBig label { display:block; clear:both; }
-#loginForm input, #frmReportBug .frmBig input { width:95%; padding:5px; clear:top; margin:0px auto; margin-bottom:10px; margin-top:10px;}  
-#loginForm button, #frmReportBug .frmBig button, .h_revisionbox button { padding: 2px 10px; margin-right:10px; }
+#loginForm, #regForm, #frmReportBug { padding:10px;}
+#loginForm label, #regForm label, #frmReportBug .frmBig label { display:block; clear:both; }
+#loginForm input, #regForm input, #frmReportBug .frmBig input { width:95%; padding:5px; clear:top; margin:0px auto; margin-bottom:10px; margin-top:10px;}  
+#loginForm button, #regForm button, #frmReportBug .frmBig button, .h_revisionbox button { padding: 2px 10px; margin-right:10px; }
+#regForm {display:none;}
 
 .errorflash{
 	clear:both;
