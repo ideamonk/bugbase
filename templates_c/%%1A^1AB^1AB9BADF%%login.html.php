@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2010-04-26 03:23:04
+<?php /* Smarty version 2.6.26, created on 2010-04-26 03:40:09
          compiled from login.html */ ?>
   <div id='leftBox'>
     <div class='boxContent'>
@@ -41,17 +41,21 @@
         <input type='text' name='username' />
         <label for='password'>Password: </label>
         <input type='password' name='password'/>
-        <label for='password'>Email id: </label>
-        <input type='password' name='email'/>
-        <?php if (isset ( $this->_tpl_vars['reg_error'] )): ?>
-			<div class='errorflash'> <?php echo $this->_tpl_vars['login_error']; ?>
- </div>
-        <?php endif; ?>
+        <label for='email'>Email id: </label>
+        <input type='text' name='email'/>
         <button type='submit'> Register </button>
         <span>
           <a href='javascript:$("#regForm").hide("fast");$("#loginForm").show("medium")'>hide</a>
         </span>
       </form>
+      <?php if (isset ( $this->_tpl_vars['reg_error'] )): ?>
+			<div class='errorflash'> <?php echo $this->_tpl_vars['reg_error']; ?>
+ </div>
+      <?php endif; ?>
+      <?php if (isset ( $this->_tpl_vars['reg_success'] )): ?>
+			<div class='successflash'> <?php echo $this->_tpl_vars['reg_success']; ?>
+ </div>
+      <?php endif; ?>
     </div>
     <div class='boxContent'>
 		Currently tracking 500 bugs in 6 projects, managed by 50 users 

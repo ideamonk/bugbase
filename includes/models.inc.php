@@ -379,4 +379,15 @@ function delUser($uid){
 	$query = "delete from users where id=$uid;"; 
 	mysql_query($query) or die ("Failed to delete user");
 }
+
+function regUser(){
+	$res = mysql_query ("select count(*) from users where username='{$_POST['username']}';");
+	if ($row = mysql_fetch_array($res)){
+		if ($row[0] != 0){
+			return 'exists';
+		}
+	}
+	$pass = md5($_POST['password']);
+	$res = mysql_query("insert into users values (NULL, '{$_POST['username']}', '{$pass}', '{$_POST['name']}', '{$_POST['email']}', '0');") or die("Please give full details for the user");	
+}
 ?>

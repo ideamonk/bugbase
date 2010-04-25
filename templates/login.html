@@ -38,16 +38,19 @@
         <input type='text' name='username' />
         <label for='password'>Password: </label>
         <input type='password' name='password'/>
-        <label for='password'>Email id: </label>
-        <input type='password' name='email'/>
-        { if isset($reg_error) }
-			<div class='errorflash'> { $login_error } </div>
-        { /if }
+        <label for='email'>Email id: </label>
+        <input type='text' name='email'/>
         <button type='submit'> Register </button>
         <span>
           <a href='javascript:$("#regForm").hide("fast");$("#loginForm").show("medium")'>hide</a>
         </span>
       </form>
+      { if isset($reg_error) }
+			<div class='errorflash'> { $reg_error } </div>
+      { /if }
+      { if isset($reg_success) }
+			<div class='successflash'> { $reg_success } </div>
+      { /if }
     </div>
     <div class='boxContent'>
 		Currently tracking 500 bugs in 6 projects, managed by 50 users 

@@ -231,7 +231,19 @@ switch ($page){
 			delUser($_GET['uid']);
 			header ("Location: /index.php?page=admin");
 			break;
+		
+		case 'regUser':
+			$result = regUser();
+			if ($result == 'exists') {
+				$smarty->assign('reg_error', 'Oops! that username exists already');
+			} else if ($result == 'error') {
+				$smarty->assign('reg_error', 'Oops! something was incomplete');
+			} else {
+				$smarty->assign('reg_success', "Username created, log in as {$_POST['username']} now");
+			}
+			break;
 			
+				
 		default:
 			header("Location: /index.php?page=home");
 }

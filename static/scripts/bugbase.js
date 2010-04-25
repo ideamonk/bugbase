@@ -3,8 +3,9 @@
 */
 
 $(document).ready( function(){
-	// error faders
+	// flash faders
 	$('.errorflash').fadeIn(1500).fadeOut(3000);
+	$('.successflash').fadeIn(1500).fadeOut(3000);
 	
 	$("#highlighted").fadeTo(500,0.2).fadeTo(1000,1.0);
 	
