@@ -8,6 +8,7 @@ function resetSession(){
 	$_SESSION['user_fullname'] = NULL;
 	$_SESSION['user_name'] = NULL;
 	$_SESSION['access'] = 'denied';
+	$_SESSION['isadmin'] = '0';
 }
 
 function checkLogin(){
@@ -27,6 +28,9 @@ function checkLogin(){
 		$_SESSION['user_id'] = $row['id'];
 		$_SESSION['user_name'] = $row['username'];
 		$_SESSION['user_fullname'] = $row['name'];
+		if ($row['is_admin'] == 1){
+			$_SESSION['isadmin'] = '1';
+		}
 	}
 }
 
@@ -41,4 +45,10 @@ function loggedIn(){
 function logout(){
 	resetSession();
 }
+
+
+function isAdmin(){
+	return ($_SESSION['isadmin'] == '1');
+}
 ?>
+

@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2010-04-25 13:44:05
+<?php /* Smarty version 2.6.26, created on 2010-04-25 13:45:18
          compiled from projectlist.html */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'replace', 'projectlist.html', 14, false),array('modifier', 'date_format', 'projectlist.html', 26, false),)), $this); ?>
@@ -10,7 +10,7 @@ smarty_core_load_plugins(array('plugins' => array(array('modifier', 'replace', '
 			<li class='heading'>
 				<div class='l_pid'> Id </div>
 				<div class='l_projectname'> Project name </div>
-				<div class='l_owner'> Manager </div>
+				<div class='l_owner'> Owner </div>
 				<div class='l_open'> Open bugs </div>
 				<div class='l_keywords'> Keywords </div>
 			</li>
