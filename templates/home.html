@@ -30,7 +30,7 @@
 						<li>
 							<a href="/index.php?page=bug&bug_id={$bugsToday[i].bug_id}">
 								#{$bugsToday[i].bug_id}
-							</a> by <span class='bluebox'><small>{$bugsToday[i].addedBy}</small></span>
+							</a> {if ($bugsToday[i].comment == '')}created{/if} by <span class='bluebox'><small>{$bugsToday[i].addedBy}</small></span>
 							<small><i>{$bugsToday[i].timestamp|date_format:'%H:%M %p'}</i> 
 							<br />
 							{$bugsToday[i].comment|truncate:100:"..."|escape}</small>
@@ -45,7 +45,7 @@
 						<li>
 							<a href="/index.php?page=bug&bug_id={$bugsOld[i].bug_id}">
 								#{$bugsOld[i].bug_id}
-							</a> by <span class='bluebox'><small>{$bugsOld[i].addedBy}</small></span>
+							</a> {if ($bugsOld[i].comment == '')}created{/if} by <span class='bluebox'><small>{$bugsOld[i].addedBy}</small></span>
 							<small><i>{$bugsOld[i].timestamp}</i> - {$bugsOld[i].comment|truncate:100:"..."|escape}</small>
 						</li>
 					{/section}
