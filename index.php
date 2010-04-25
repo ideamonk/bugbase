@@ -30,7 +30,7 @@ switch ($page){
 	case 'confirm':
 		checkLogin();
 		if (loggedIn()){
-			header("Location: $default_location");
+			@header("Location: $default_location");
 		} else {
 			$smarty->assign('login_error', 'Invalid username or password.');
 		}
@@ -51,11 +51,11 @@ switch ($page){
 	
 	case 'logout':
 		logout();
-		header("Location: /index.php");
+		@header("Location: /index.php");
 		break;
 	
 	case 'reportNew':
-		if (!loggedIn()){ header("Location: $default_location"); }
+		if (!loggedIn()){ @header("Location: $default_location"); }
 		$template = 'addedit.html';
 		$smarty->assign('subtitle','Add new bug');
 		$smarty->assign('scripts', array('/static/scripts/addnew.js'));
@@ -69,15 +69,15 @@ switch ($page){
 		break;
 	
 	case 'addNew':
-		if (!loggedIn()){ header("Location: $default_location"); }
+		if (!loggedIn()){ @header("Location: $default_location"); }
 		if (($bug_id = addNewBug()) > 0){
-			header("Location: /index.php?page=list&highlight=$bug_id");
+			@header("Location: /index.php?page=list&highlight=$bug_id");
 		}
 		// otherwise case never comes as it dies in addNewBug itself
 		break;
 		
 	case 'list':
-		if (!loggedIn()){ header("Location: $default_location"); }
+		if (!loggedIn()){ @header("Location: $default_location"); }
 		$template = 'buglist.html';
 		if (!isset($_GET['filter'])){
 			// when no filter is set on buglist, show all of them
@@ -112,7 +112,7 @@ switch ($page){
 		break;
 		
 		case 'projects':
-			if (!loggedIn()){ header("Location: $default_location"); }
+			if (!loggedIn()){ @header("Location: $default_location"); }
 			$template = 'projectlist.html';
 			$smarty->assign('scripts', array('/static/scripts/project.js'));
 			$smarty->assign('subtitle','Projects');
@@ -123,7 +123,7 @@ switch ($page){
 			break;
 			
 		case 'bug':
-			if (!loggedIn()){ header("Location: $default_location"); }
+			if (!loggedIn()){ @header("Location: $default_location"); }
 			$template = 'bug.html';
 			$_SESSION['currentpage']='';
 			if (!isset($_GET['bug_id'])){
@@ -146,13 +146,13 @@ switch ($page){
 		
 		case 'updateBug':
 			// add a new bug history
-			if (!loggedIn()){ header("Location: $default_location"); }
+			if (!loggedIn()){ @header("Location: $default_location"); }
 			addBugHistory();
-			header ("Location: /index.php?page=bug&bug_id={$_POST['bug_id']}");
+			@header ("Location: /index.php?page=bug&bug_id={$_POST['bug_id']}");
 			break;
 			
 		default:
-			header("Location: /index.php?page=home");
+			@header("Location: /index.php?page=home");
 }
 
 session_to_smarty($smarty);							// move all session data to be available in views
