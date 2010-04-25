@@ -18,7 +18,7 @@
             {section name=i loop=$last10}
 				<p>
 					<a href="/index.php?page=bug&bug_id={$last10[i].bug_id}">#{$last10[i].bug_id}</a>
-					<small><i>{$last10[i].timestamp}</i> - {$last10[i].comment|truncate:100:"..."|escape}</small>
+					<small><i>{$last10[i].timestamp}</i> - {if ($last10[i].comment == '')} bug created {else } {$last10[i].comment|truncate:100:"..."|escape} {/if}</small>
 				</p>
             {/section}
         </div>

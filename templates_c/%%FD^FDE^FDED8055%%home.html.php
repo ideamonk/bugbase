@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2010-04-25 17:48:05
+<?php /* Smarty version 2.6.26, created on 2010-04-26 01:37:15
          compiled from home.html */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'truncate', 'home.html', 21, false),array('modifier', 'escape', 'home.html', 21, false),array('modifier', 'date_format', 'home.html', 37, false),)), $this); ?>
@@ -52,8 +52,8 @@ $this->_sections['i']['last']       = ($this->_sections['i']['iteration'] == $th
 ">#<?php echo $this->_tpl_vars['last10'][$this->_sections['i']['index']]['bug_id']; ?>
 </a>
 					<small><i><?php echo $this->_tpl_vars['last10'][$this->_sections['i']['index']]['timestamp']; ?>
-</i> - <?php echo ((is_array($_tmp=((is_array($_tmp=$this->_tpl_vars['last10'][$this->_sections['i']['index']]['comment'])) ? $this->_run_mod_handler('truncate', true, $_tmp, 100, "...") : smarty_modifier_truncate($_tmp, 100, "...")))) ? $this->_run_mod_handler('escape', true, $_tmp) : smarty_modifier_escape($_tmp)); ?>
-</small>
+</i> - <?php if (( $this->_tpl_vars['last10'][$this->_sections['i']['index']]['comment'] == '' )): ?> bug created <?php else: ?> <?php echo ((is_array($_tmp=((is_array($_tmp=$this->_tpl_vars['last10'][$this->_sections['i']['index']]['comment'])) ? $this->_run_mod_handler('truncate', true, $_tmp, 100, "...") : smarty_modifier_truncate($_tmp, 100, "...")))) ? $this->_run_mod_handler('escape', true, $_tmp) : smarty_modifier_escape($_tmp)); ?>
+ <?php endif; ?></small>
 				</p>
             <?php endfor; endif; ?>
         </div>

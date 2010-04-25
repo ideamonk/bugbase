@@ -287,7 +287,7 @@ function addBugHistory(){
 }
 
 function last10bugs(){
-	$query = "SELECT * from bughistory where assignedTo = {$_SESSION['user_id']} order by id desc limit 10;";
+	$query = "SELECT * from bughistory where addedBy = {$_SESSION['user_id']} order by id desc limit 10;";
 	$result = mysql_query($query);
 	return getArrayFromResult($result);
 }
