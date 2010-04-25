@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2010-04-25 13:02:22
+<?php /* Smarty version 2.6.26, created on 2010-04-25 13:19:36
          compiled from home.html */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'truncate', 'home.html', 18, false),array('modifier', 'escape', 'home.html', 18, false),array('modifier', 'date_format', 'home.html', 34, false),)), $this); ?>
@@ -128,7 +128,7 @@ $this->_sections['i']['first']      = ($this->_sections['i']['iteration'] == 1);
 $this->_sections['i']['last']       = ($this->_sections['i']['iteration'] == $this->_sections['i']['total']);
 ?>
 						<li>
-							<a href="/index.php?page=bug&bug_id=<?php echo $this->_tpl_vars['bugsToday'][$this->_sections['i']['index']]['bug_id']; ?>
+							<a href="/index.php?page=bug&bug_id=<?php echo $this->_tpl_vars['bugsOld'][$this->_sections['i']['index']]['bug_id']; ?>
 ">
 								#<?php echo $this->_tpl_vars['bugsOld'][$this->_sections['i']['index']]['bug_id']; ?>
 
