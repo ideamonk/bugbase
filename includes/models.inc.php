@@ -185,7 +185,7 @@ function getMyWorkingBugList(){
 	$filtered = array();
 	$fi = 0;
 	for ($i=0; $i < count($rows); $i++){
-		if ($rows[$i]['status'] == 'open'){
+		if ($rows[$i]['status'] == 'in progress'){
 			$filtered[$fi++] = $rows[$i];
 		}
 	}
