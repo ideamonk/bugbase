@@ -270,3 +270,9 @@ function addBugHistory(){
 	$query = "INSERT INTO `bugbase`.`bughistory` (`bug_id`,`addedBy`,`status`,`comment`,`priority`,`assignedTo`) VALUES ({$hist['bug_id']},{$hist['addedBy']},{$hist['status']},'{$hist['comment']}',{$hist['priority']},{$hist['assignedTo']});";
 	$result = mysql_query($query) or die ("Failed to update for'{$hist['bug_id']}' with '$query'");
 }
+
+function last10bugs(){
+	$query = "SELECT * from bughistory where assignedTo = {$_SESSION['user_id']} order by id desc limit 10;";
+	$result = mysql_query($query);
+	return getArrayFromResult($result);
+}
