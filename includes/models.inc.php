@@ -350,4 +350,13 @@ function addNewProject(){
 	$query = "INSERT INTO `bugbase`.`projects` (`id`,`name`,`description`,`owner`,`keywords`) VALUES (NULL,'{$proj['name']}','{$proj['desctiption']}','{$proj['owner']}','{$proj['keywords']}');";
 	$result = mysql_query($query) or die ("Failed to update for'{$hist['bug_id']}' with '$query'");
 }
+
+function delStatus($status_id){
+	$query = "delete from statuses where id=$status_id;"; 
+	mysql_query($query) or die ("Failed to delete status");
+}
+
+function addStatus(){
+	mysql_query("INSERT into statuses VALUES(NULL, '{$_POST['label']}');") or die("Trying ... nigga style"); 
+}
 ?>

@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2010-04-25 14:10:15
+<?php /* Smarty version 2.6.26, created on 2010-04-26 02:43:14
          compiled from header.html */ ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -90,7 +90,7 @@ $this->_sections['i']['last']       = ($this->_sections['i']['iteration'] == $th
 				</li>
 				<?php if (( $this->_tpl_vars['isadmin'] == '1' )): ?>
 					<li class='<?php if (( $this->_tpl_vars['currentpage'] == 'admin' )): ?>rounded_selected<?php else: ?>rounded<?php endif; ?>'>
-						<a href='/index.php?page=admin'>Administrate</a>
+						<a href='/index.php?page=admin'>Administration</a>
 					</li>
 				<?php endif; ?>
 			</ul>		

@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2010-04-26 02:41:11
+<?php /* Smarty version 2.6.26, created on 2010-04-26 02:52:51
          compiled from admin.html */ ?>
 <div id='contentSpacer'>
 	<h2>Bug<sup>Base</sup> Administration</h2>
@@ -35,7 +35,7 @@ $this->_sections['i']['last']       = ($this->_sections['i']['iteration'] == $th
 ">del</a></span> </p>
 			<?php endfor; endif; ?>
 			<div>
-				<form action='' method='post'>
+				<form action='/index.php?page=addStatus' method='post'>
 					<input type='text' name='label'/>
 					<button type='submit'>+</button>
 				</form>

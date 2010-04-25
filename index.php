@@ -182,7 +182,21 @@ switch ($page){
 				$smarty->assign($key, $val);
 			}
 			break;
-			
+		
+		case 'delStatus':
+			if (!loggedIn()){ header("Location: $default_location"); }
+			if (!isAdmin()){ header("Location: $default_location"); }		// quitely let them wonder
+			delStatus($_GET['status']);
+			header ("Location: /index.php?page=admin");
+			break;
+		
+		case 'addStatus':
+			if (!loggedIn()){ header("Location: $default_location"); }
+			if (!isAdmin()){ header("Location: $default_location"); }		// quitely let them wonder
+			addStatus();
+			header ("Location: /index.php?page=admin");
+			break;
+				
 		default:
 			header("Location: /index.php?page=home");
 }
