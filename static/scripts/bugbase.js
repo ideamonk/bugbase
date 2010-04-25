@@ -10,11 +10,11 @@ $(document).ready( function(){
 	
 	// Fix contentSpacer's height
 	// sometimes JS is like a swiss army knife.
-	var h1=$('#leftBox .boxContent').height();
-	var h2=$('#rightBox .boxContent').height();
-	var maxHeight = (h1>h2 ? h1:h2) + 40;
+	var h1=$('#leftBox').height();
+	var h2=$('#rightBox').height();
+	var maxHeight = (h1>h2 ? h1:h2);
 	if (maxHeight > 100){
-		$('#contentSpacer').css('height',maxHeight.toString() + 'px');
+		$('#contentSpacer').height(maxHeight);
 	}
 } );
 

@@ -73,8 +73,8 @@ body {
 }
 #rightBox{ 
 	float:right; 
-
 	}
+
 #rightBox .boxContent {
 	background:#efefef;
 	background: -webkit-gradient(linear, left top, left bottom, from(#dbe1ed), to(#ffffff));
