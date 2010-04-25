@@ -39,6 +39,11 @@
 					<div class='l_open'>{$projectlist[i].open_count}</div>
 					<div class='l_keywords'>{$projectlist[i].keywords}</div>
 				</li>
+				<li class='h_comment'>
+					<p>
+						<span class='h_comment_text'>{$projectlist[i].description|escape}</span>
+					</p>
+				</li>
 			{/section}
 		</ul>
 	</div>

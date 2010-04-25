@@ -1,7 +1,7 @@
-<?php /* Smarty version 2.6.26, created on 2010-04-25 15:08:21
+<?php /* Smarty version 2.6.26, created on 2010-04-26 01:51:11
          compiled from projectlist.html */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'replace', 'projectlist.html', 14, false),array('modifier', 'date_format', 'projectlist.html', 26, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'replace', 'projectlist.html', 14, false),array('modifier', 'date_format', 'projectlist.html', 26, false),array('modifier', 'escape', 'projectlist.html', 44, false),)), $this); ?>
 <div id='contentSpacer'>
 	<h2><?php echo $this->_tpl_vars['project_heading']; ?>
 </h2>
@@ -104,6 +104,12 @@ $this->_sections['i']['last']       = ($this->_sections['i']['iteration'] == $th
 </div>
 					<div class='l_keywords'><?php echo $this->_tpl_vars['projectlist'][$this->_sections['i']['index']]['keywords']; ?>
 </div>
+				</li>
+				<li class='h_comment'>
+					<p>
+						<span class='h_comment_text'><?php echo ((is_array($_tmp=$this->_tpl_vars['projectlist'][$this->_sections['i']['index']]['description'])) ? $this->_run_mod_handler('escape', true, $_tmp) : smarty_modifier_escape($_tmp)); ?>
+</span>
+					</p>
 				</li>
 			<?php endfor; endif; ?>
 		</ul>

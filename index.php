@@ -43,7 +43,7 @@ switch ($page){
 			$smarty->assign('my_open_count', getMyBugCount('open'));
 			$smarty->assign('my_fixed_count', getMyBugCount('fixed'));
 			$smarty->assign('my_active_count', getMyBugCount('in progress'));
-			$smarty->assign('last10', last10bugs());
+			$smarty->assign('last10', las10Bugs());
 			$smarty->assign('bugsToday', bugsToday());
 			$smarty->assign('bugsOld', bugsOld());
 			$_SESSION['currentpage']='home';
@@ -155,6 +155,13 @@ switch ($page){
 			if (!loggedIn()){ header("Location: $default_location"); }
 			addBugHistory();
 			header ("Location: /index.php?page=bug&bug_id={$_POST['bug_id']}");
+			break;
+		
+		case 'addProject':
+			// add a new project
+			if (!loggedIn()){ header("Location: $default_location"); }
+			addNewProject();
+			header ("Location: /index.php?page=projects");
 			break;
 			
 		default:

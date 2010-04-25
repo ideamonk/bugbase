@@ -325,4 +325,11 @@ function bugsOld(){
 	
 	return $old;
 }
+
+function addNewProject(){
+	// all these things look so unsafe
+	$proj = pickFromPost(array('name','description','owner','keywords'));
+	$query = "INSERT INTO `bugbase`.`projects` (`id`,`name`,`description`,`owner`,`keywords`) VALUES (NULL,'{$proj['name']}','{$proj['desctiption']}','{$proj['owner']}','{$proj['keywords']}');";
+	$result = mysql_query($query) or die ("Failed to update for'{$hist['bug_id']}' with '$query'");
+}
 ?>
