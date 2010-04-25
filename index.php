@@ -114,6 +114,7 @@ switch ($page){
 		case 'projects':
 			if (!loggedIn()){ header("Location: $default_location"); }
 			$template = 'projectlist.html';
+			$smarty->assign('scripts', array('/static/scripts/project.js'));
 			$smarty->assign('subtitle','Projects');
 			$smarty->assign('projectlist_heading', 'All projects');
 			$smarty->assign('projectlist',getProjectList());

@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2010-04-25 13:45:18
+<?php /* Smarty version 2.6.26, created on 2010-04-25 14:55:43
          compiled from projectlist.html */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'replace', 'projectlist.html', 14, false),array('modifier', 'date_format', 'projectlist.html', 26, false),)), $this); ?>
@@ -108,4 +108,48 @@ $this->_sections['i']['last']       = ($this->_sections['i']['iteration'] == $th
 			<?php endfor; endif; ?>
 		</ul>
 	</div>
+	
+	<?php if (( $this->_tpl_vars['isadmin'] == '1' )): ?>
+	<div class='h_revisionbox'>
+			<div id='validationErrors' class='validationError'></div>
+			<h3>Add a new project</h3>
+			<form action='/index.php?page=addProject' method='post' id='frmAddProject'>
+				<div id='buglist'>
+					<ul>
+						<li class='heading'>
+							<div class='l_pid'> id </div>
+							<div class='l_projectname'> Project name </div>
+							<div class='l_owner'> Owner </div>
+							<div class='l_open'> Open bugs </div>
+							<div class='l_keywords'> Keywords </div>
+						</li>
+						
+						<li class='heading'>
+							<div class='l_pid'> * </div>
+							<div class='l_projectname'>
+								<input type='text' name='name' id='txtName'/>
+							</div>
+							<div class='l_owner'>
+								<select name='owner'>
+									<option value=''>owner</option>
+								</select>
+							</div>
+							<div class='l_open'> <span class='greenbox'>none</span> </div>
+							<div class='l_keywords'>
+								<input type='text' name='keywords'  id='txtKeyword'/>
+							</div>
+							
+							<div id='h_rev_comment'>
+								<h4>Description:</h4>
+								<textarea name='description' id='txtComment'></textarea>
+							</div>
+							<button type='button' onclick='javascript:validateNewProject()'>
+								<strong>Add</strong>
+							</button>
+						</li>
+					</ul>
+				</div>
+			</form>
+		</div>
+	<?php endif; ?>
 </div>
