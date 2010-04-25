@@ -1,16 +1,16 @@
-<?php /* Smarty version 2.6.26, created on 2010-04-25 11:21:14
+<?php /* Smarty version 2.6.26, created on 2010-04-25 11:59:00
          compiled from bug.html */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'replace', 'bug.html', 39, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'escape', 'bug.html', 6, false),array('modifier', 'replace', 'bug.html', 39, false),)), $this); ?>
 <div id='contentSpacer' class='bugContainer'>
 	<h2><?php echo $this->_tpl_vars['bugdata'][0]['bugType']; ?>
  #<?php echo $this->_tpl_vars['bugdata'][0]['id']; ?>
 </h2>
 	<div class='bug_desc'>
 		<h3><?php echo $this->_tpl_vars['bugdata'][0]['bugName']; ?>
-</h3>
+|escape</h3>
 		<div>
-			<?php echo $this->_tpl_vars['bugdata'][0]['description']; ?>
+			<?php echo ((is_array($_tmp=$this->_tpl_vars['bugdata'][0]['description'])) ? $this->_run_mod_handler('escape', true, $_tmp) : smarty_modifier_escape($_tmp)); ?>
 
 		</div>
 		<div class='bug_desc_end'>
@@ -92,7 +92,7 @@ $this->_sections['i']['last']       = ($this->_sections['i']['iteration'] == $th
 							<p>
 								<span class='bluebox'><?php echo $this->_tpl_vars['bughistory'][$this->_sections['i']['index']]['addedBy']; ?>
 </span> says:
-								<span class='h_comment_text'><?php echo $this->_tpl_vars['bughistory'][$this->_sections['i']['index']]['comment']; ?>
+								<span class='h_comment_text'><?php echo ((is_array($_tmp=$this->_tpl_vars['bughistory'][$this->_sections['i']['index']]['comment'])) ? $this->_run_mod_handler('escape', true, $_tmp) : smarty_modifier_escape($_tmp)); ?>
 </span>
 							</p>
 						</li>

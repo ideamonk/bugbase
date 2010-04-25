@@ -1,7 +1,7 @@
-<?php /* Smarty version 2.6.26, created on 2010-04-25 11:21:48
+<?php /* Smarty version 2.6.26, created on 2010-04-25 11:58:51
          compiled from home.html */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'truncate', 'home.html', 18, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'truncate', 'home.html', 18, false),array('modifier', 'escape', 'home.html', 18, false),)), $this); ?>
 <div id='contentSpacer'>
     <div id='leftBox'>
         <div class='welcomeReport'>
@@ -48,7 +48,7 @@ $this->_sections['i']['last']       = ($this->_sections['i']['iteration'] == $th
 ">#<?php echo $this->_tpl_vars['last10'][$this->_sections['i']['index']]['bug_id']; ?>
 </a>
 					<small><i><?php echo $this->_tpl_vars['last10'][$this->_sections['i']['index']]['timestamp']; ?>
-</i> - <?php echo ((is_array($_tmp=$this->_tpl_vars['last10'][$this->_sections['i']['index']]['comment'])) ? $this->_run_mod_handler('truncate', true, $_tmp, 100, "...") : smarty_modifier_truncate($_tmp, 100, "...")); ?>
+</i> - <?php echo ((is_array($_tmp=((is_array($_tmp=$this->_tpl_vars['last10'][$this->_sections['i']['index']]['comment'])) ? $this->_run_mod_handler('truncate', true, $_tmp, 100, "...") : smarty_modifier_truncate($_tmp, 100, "...")))) ? $this->_run_mod_handler('escape', true, $_tmp) : smarty_modifier_escape($_tmp)); ?>
 </small>
 				</p>
             <?php endfor; endif; ?>

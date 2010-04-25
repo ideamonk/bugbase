@@ -1,9 +1,9 @@
 <div id='contentSpacer' class='bugContainer'>
 	<h2>{$bugdata[0].bugType} #{$bugdata[0].id}</h2>
 	<div class='bug_desc'>
-		<h3>{$bugdata[0].bugName}</h3>
+		<h3>{$bugdata[0].bugName|escape}</h3>
 		<div>
-			{$bugdata[0].description}
+			{$bugdata[0].description|escape}
 		</div>
 		<div class='bug_desc_end'>
 			<p>Created by <span>{$bugdata[0].createdBy}</span></p>
