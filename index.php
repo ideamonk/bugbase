@@ -118,6 +118,7 @@ switch ($page){
 			$smarty->assign('subtitle','Projects');
 			$smarty->assign('projectlist_heading', 'All projects');
 			$smarty->assign('projectlist',getProjectList());
+			$smarty->assign('users', getUserNameList());
 			$_SESSION['currentpage']='projects';
 			break;
 			

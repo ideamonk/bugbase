@@ -65,7 +65,9 @@
 							</div>
 							<div class='l_owner'>
 								<select name='owner'>
-									<option value=''>owner</option>
+									{section name=i loop=$users}
+										<option value='{$users[i].id}' {if ($users[i].id == $bugdata[0].assignedTo)} selected {/if} >{$users[i].name}</option>
+									{/section}
 								</select>
 							</div>
 							<div class='l_open'> <span class='greenbox'>none</span> </div>
