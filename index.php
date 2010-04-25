@@ -225,6 +225,13 @@ switch ($page){
 			header ("Location: /index.php?page=admin");
 			break;
 			
+		case 'delUser':
+			if (!loggedIn()){ header("Location: $default_location"); }
+			if (!isAdmin()){ header("Location: $default_location"); }		// quitely let them wonder
+			delUser($_GET['uid']);
+			header ("Location: /index.php?page=admin");
+			break;
+			
 		default:
 			header("Location: /index.php?page=home");
 }

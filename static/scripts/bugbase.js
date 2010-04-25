@@ -34,3 +34,7 @@ function addError(msg){
   $("#validationErrors").append("<p>"+msg+"</p");
 }
 
+function showWarning(obj_id, url){
+	$(obj_id).attr('href', url);
+	$(obj_id).html("Sure?");
+}

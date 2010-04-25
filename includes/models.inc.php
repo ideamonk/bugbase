@@ -374,4 +374,9 @@ function delPri($pri_id){
 function addPri(){
 	mysql_query("INSERT into priorities VALUES(NULL, '{$_POST['label']}');") or die(" cat Trying ... nigga style"); 
 }
+
+function delUser($uid){
+	$query = "delete from users where id=$uid;"; 
+	mysql_query($query) or die ("Failed to delete user");
+}
 ?>
