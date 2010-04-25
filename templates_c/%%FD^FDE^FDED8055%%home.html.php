@@ -1,5 +1,7 @@
-<?php /* Smarty version 2.6.26, created on 2010-04-25 00:44:07
+<?php /* Smarty version 2.6.26, created on 2010-04-25 11:18:05
          compiled from home.html */ ?>
+<?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'truncate', 'home.html', 18, false),)), $this); ?>
 <div id='contentSpacer'>
     <div id='leftBox'>
         <div class='welcomeReport'>
@@ -16,7 +18,7 @@
 </a> bugs.
             </p>
             <br />
-            <h3>You last 10 bugs</h3>
+            <h3>You've been upto -</h3>
             <?php unset($this->_sections['i']);
 $this->_sections['i']['name'] = 'i';
 $this->_sections['i']['loop'] = is_array($_loop=$this->_tpl_vars['last10']) ? count($_loop) : max(0, (int)$_loop); unset($_loop);
@@ -42,10 +44,11 @@ $this->_sections['i']['first']      = ($this->_sections['i']['iteration'] == 1);
 $this->_sections['i']['last']       = ($this->_sections['i']['iteration'] == $this->_sections['i']['total']);
 ?>
 				<p>
-					<a href="#">#<?php echo $this->_tpl_vars['last10'][$this->_sections['i']['index']]['bug_id']; ?>
+					<a href="/index.php?page=bug&bug_id=<?php echo $this->_tpl_vars['last10'][$this->_sections['i']['index']]['bug_id']; ?>
+">#<?php echo $this->_tpl_vars['last10'][$this->_sections['i']['index']]['bug_id']; ?>
 </a>
 					<small><i><?php echo $this->_tpl_vars['last10'][$this->_sections['i']['index']]['timestamp']; ?>
-</i> - <?php echo $this->_tpl_vars['last10'][$this->_sections['i']['index']]['comment']; ?>
+</i> - <?php echo ((is_array($_tmp=$this->_tpl_vars['last10'][$this->_sections['i']['index']]['comment'])) ? $this->_run_mod_handler('truncate', true, $_tmp, 120, "...") : smarty_modifier_truncate($_tmp, 120, "...")); ?>
 </small>
 				</p>
             <?php endfor; endif; ?>

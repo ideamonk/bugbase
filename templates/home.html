@@ -11,11 +11,11 @@
                 So far, you have fixed <a href='/index.php?page=list&filter=self_fixed'>{$my_fixed_count}</a> bugs.
             </p>
             <br />
-            <h3>You last 10 bugs</h3>
+            <h3>You've been upto -</h3>
             {section name=i loop=$last10}
 				<p>
-					<a href="#">#{$last10[i].bug_id}</a>
-					<small><i>{$last10[i].timestamp}</i> - {$last10[i].comment}</small>
+					<a href="/index.php?page=bug&bug_id={$last10[i].bug_id}">#{$last10[i].bug_id}</a>
+					<small><i>{$last10[i].timestamp}</i> - {$last10[i].comment|truncate:100:"..."}</small>
 				</p>
             {/section}
         </div>
