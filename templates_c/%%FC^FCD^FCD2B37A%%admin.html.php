@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2010-04-26 03:07:11
+<?php /* Smarty version 2.6.26, created on 2010-04-26 03:12:02
          compiled from admin.html */ ?>
 <div id='contentSpacer'>
 	<h2>Bug<sup>Base</sup> Administration</h2>
@@ -146,11 +146,13 @@ $this->_sections['i']['index_next'] = $this->_sections['i']['index'] + $this->_s
 $this->_sections['i']['first']      = ($this->_sections['i']['iteration'] == 1);
 $this->_sections['i']['last']       = ($this->_sections['i']['iteration'] == $this->_sections['i']['total']);
 ?>
+			<?php if ($this->_tpl_vars['users'][$this->_sections['i']['index']]['is_admin'] != '1'): ?>
 				<p><?php echo $this->_tpl_vars['users'][$this->_sections['i']['index']]['name']; ?>
  <span><a href="javascript:showWarning('#aa<?php echo $this->_sections['i']['index']; ?>
 ', '/index.php?page=delUser&uid=<?php echo $this->_tpl_vars['users'][$this->_sections['i']['index']]['id']; ?>
 ')" id='aa<?php echo $this->_sections['i']['index']; ?>
 ' >del</a></span></p>
+			<?php endif; ?>
 			<?php endfor; endif; ?>
 		</div>
 	</div>
