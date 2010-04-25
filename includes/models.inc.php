@@ -201,7 +201,7 @@ function getProjectList(){
 	
 	while ($row = mysql_fetch_assoc($result)){
 		// augument a row with open bugs count
-		$query2 = "SELECT count(id) from `bughistory` where `bug_id` in (SELECT id from `bugs` where  `project`={$row['id']}) and `status` in (SELECT `id` from `statuses` where label='open');";
+		$query2 = "SELECT count(*) FROM `bugs` where project = '{$row['id']}' and id in (select bug_id from bughistory where status in (select id from statuses where label='open') group by bug_id having max(id)) order by createdAt desc;";
 		$result2 = mysql_query($query2);
 		if ($row2 = mysql_fetch_array($result2)){
 			$row['open_count'] = $row2[0];
