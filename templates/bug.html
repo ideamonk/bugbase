@@ -40,14 +40,13 @@
 						<div class='h_rid'> #{$smarty.section.i.index+1} </div>
 						<div class='h_status'> {$bughistory[i].status} </div>
 						<div class='h_priority'> {$bughistory[i].priority} </div>
-						<div class='h_commenter'> {$bughistory[i].addedBy} </div>
+						<div class='h_commenter'> <span class='greenbox'>{$bughistory[i].addedBy}</span> </div>
 						<div class='h_owner'> {if ($bughistory[i].assignedTo!='0')} {$bughistory[i].assignedTo} {else} no one {/if} </div>
 						<div class='h_timestamp'> {$bughistory[i].timestamp} </div>
 					</li>
 					{if ($bughistory[i].comment!='')}
 						<li class='h_comment'>
 							<p>
-								<span class='bluebox'>{$bughistory[i].addedBy}</span> says:
 								<span class='h_comment_text'>{$bughistory[i].comment|escape}</span>
 							</p>
 						</li>
@@ -88,8 +87,8 @@
 									{/section}
 								</select>
 							</div>
-							<div class='h_commenter'> <span class='greenbox'>Abhishek</span> </div>
-							<div class='h_owner'>s
+							<div class='h_commenter'> <span class='bluebox'>{$user_fullname}</span> </div>
+							<div class='h_owner'>
 								<select name='assignedTo'>
 									<option value='0'>no one</option>
 									{section name=i loop=$users}
@@ -97,7 +96,7 @@
 									{/section}
 								</select>
 							</div>
-							<div class='h_timestamp'> <span class='greenbox'>right now</span> </div>
+							<div class='h_timestamp'> <span class='bluebox'>right now</span> </div>
 							
 							<div id='h_rev_comment'>
 								<h4>Comment:</h4>

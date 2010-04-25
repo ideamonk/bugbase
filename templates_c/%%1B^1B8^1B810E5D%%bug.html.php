@@ -1,14 +1,14 @@
-<?php /* Smarty version 2.6.26, created on 2010-04-25 11:59:00
+<?php /* Smarty version 2.6.26, created on 2010-04-25 12:05:07
          compiled from bug.html */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'escape', 'bug.html', 6, false),array('modifier', 'replace', 'bug.html', 39, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'escape', 'bug.html', 4, false),array('modifier', 'replace', 'bug.html', 39, false),)), $this); ?>
 <div id='contentSpacer' class='bugContainer'>
 	<h2><?php echo $this->_tpl_vars['bugdata'][0]['bugType']; ?>
  #<?php echo $this->_tpl_vars['bugdata'][0]['id']; ?>
 </h2>
 	<div class='bug_desc'>
-		<h3><?php echo $this->_tpl_vars['bugdata'][0]['bugName']; ?>
-|escape</h3>
+		<h3><?php echo ((is_array($_tmp=$this->_tpl_vars['bugdata'][0]['bugName'])) ? $this->_run_mod_handler('escape', true, $_tmp) : smarty_modifier_escape($_tmp)); ?>
+</h3>
 		<div>
 			<?php echo ((is_array($_tmp=$this->_tpl_vars['bugdata'][0]['description'])) ? $this->_run_mod_handler('escape', true, $_tmp) : smarty_modifier_escape($_tmp)); ?>
 
@@ -80,8 +80,8 @@ $this->_sections['i']['last']       = ($this->_sections['i']['iteration'] == $th
  </div>
 						<div class='h_priority'> <?php echo $this->_tpl_vars['bughistory'][$this->_sections['i']['index']]['priority']; ?>
  </div>
-						<div class='h_commenter'> <?php echo $this->_tpl_vars['bughistory'][$this->_sections['i']['index']]['addedBy']; ?>
- </div>
+						<div class='h_commenter'> <span class='greenbox'><?php echo $this->_tpl_vars['bughistory'][$this->_sections['i']['index']]['addedBy']; ?>
+</span> </div>
 						<div class='h_owner'> <?php if (( $this->_tpl_vars['bughistory'][$this->_sections['i']['index']]['assignedTo'] != '0' )): ?> <?php echo $this->_tpl_vars['bughistory'][$this->_sections['i']['index']]['assignedTo']; ?>
  <?php else: ?> no one <?php endif; ?> </div>
 						<div class='h_timestamp'> <?php echo $this->_tpl_vars['bughistory'][$this->_sections['i']['index']]['timestamp']; ?>
@@ -90,8 +90,6 @@ $this->_sections['i']['last']       = ($this->_sections['i']['iteration'] == $th
 					<?php if (( $this->_tpl_vars['bughistory'][$this->_sections['i']['index']]['comment'] != '' )): ?>
 						<li class='h_comment'>
 							<p>
-								<span class='bluebox'><?php echo $this->_tpl_vars['bughistory'][$this->_sections['i']['index']]['addedBy']; ?>
-</span> says:
 								<span class='h_comment_text'><?php echo ((is_array($_tmp=$this->_tpl_vars['bughistory'][$this->_sections['i']['index']]['comment'])) ? $this->_run_mod_handler('escape', true, $_tmp) : smarty_modifier_escape($_tmp)); ?>
 </span>
 							</p>
@@ -185,8 +183,9 @@ $this->_sections['i']['last']       = ($this->_sections['i']['iteration'] == $th
 									<?php endfor; endif; ?>
 								</select>
 							</div>
-							<div class='h_commenter'> <span class='greenbox'>Abhishek</span> </div>
-							<div class='h_owner'>s
+							<div class='h_commenter'> <span class='bluebox'><?php echo $this->_tpl_vars['user_fullname']; ?>
+</span> </div>
+							<div class='h_owner'>
 								<select name='assignedTo'>
 									<option value='0'>no one</option>
 									<?php unset($this->_sections['i']);
@@ -219,7 +218,7 @@ $this->_sections['i']['last']       = ($this->_sections['i']['iteration'] == $th
 									<?php endfor; endif; ?>
 								</select>
 							</div>
-							<div class='h_timestamp'> <span class='greenbox'>right now</span> </div>
+							<div class='h_timestamp'> <span class='bluebox'>right now</span> </div>
 							
 							<div id='h_rev_comment'>
 								<h4>Comment:</h4>
