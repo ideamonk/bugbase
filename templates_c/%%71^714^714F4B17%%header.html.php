@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2010-04-23 21:24:45
+<?php /* Smarty version 2.6.26, created on 2010-04-25 14:10:15
          compiled from header.html */ ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -76,18 +76,23 @@ $this->_sections['i']['last']       = ($this->_sections['i']['iteration'] == $th
 				<li class='<?php if (( $this->_tpl_vars['currentpage'] == 'home' )): ?>rounded_selected<?php else: ?>rounded<?php endif; ?>'>
 					<a href='/index.php?page=home'>Home</a>
 				</li>
-				<li class='<?php if (( $this->_tpl_vars['currentpage'] == 'allbugs' )): ?>rounded_selected<?php else: ?>rounded<?php endif; ?>'>
-					<a href='/index.php?page=list'>Bugs</a>
-				</li>
 				<li class='<?php if (( $this->_tpl_vars['currentpage'] == 'mybugs' )): ?>rounded_selected<?php else: ?>rounded<?php endif; ?>'>
 					<a href='/index.php?page=list&filter=self'>My Bugs</a>
+				</li>
+				<li class='<?php if (( $this->_tpl_vars['currentpage'] == 'allbugs' )): ?>rounded_selected<?php else: ?>rounded<?php endif; ?>'>
+					<a href='/index.php?page=list'>All Bugs</a>
 				</li>
 				<li class='<?php if (( $this->_tpl_vars['currentpage'] == 'projects' )): ?>rounded_selected<?php else: ?>rounded<?php endif; ?>'>
 					<a href='/index.php?page=projects'>Projects</a>
 				</li>
 				<li class='<?php if (( $this->_tpl_vars['currentpage'] == 'reportNew' )): ?>rounded_selected<?php else: ?>rounded<?php endif; ?>'>
-					<a href='/index.php?page=reportNew'>Report new Bug</a>
+					<a href='/index.php?page=reportNew'>Report a bug</a>
 				</li>
+				<?php if (( $this->_tpl_vars['isadmin'] == '1' )): ?>
+					<li class='<?php if (( $this->_tpl_vars['currentpage'] == 'admin' )): ?>rounded_selected<?php else: ?>rounded<?php endif; ?>'>
+						<a href='/index.php?page=admin'>Administrate</a>
+					</li>
+				<?php endif; ?>
 			</ul>		
 		</div>
       <?php endif; ?>
