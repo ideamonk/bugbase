@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 24, 2010 at 02:13 PM
+-- Generation Time: Apr 25, 2010 at 05:03 PM
 -- Server version: 5.1.41
 -- PHP Version: 5.3.2-1ubuntu4
 
@@ -25,11 +25,11 @@ CREATE TABLE IF NOT EXISTS `bughistory` (
   `addedBy` int(11) NOT NULL,
   `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `status` int(11) NOT NULL,
-  `comment` varchar(2000) NOT NULL,
+  `comment` varchar(2000) NOT NULL DEFAULT '',
   `assignedTo` int(11) NOT NULL,
   `priority` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=26 ;
 
 --
 -- Dumping data for table `bughistory`
@@ -45,9 +45,21 @@ INSERT INTO `bughistory` (`id`, `bug_id`, `addedBy`, `timestamp`, `status`, `com
 (7, 16, 0, '2010-04-22 03:22:12', 1, '', 0, 2),
 (8, 17, 0, '2010-04-22 07:38:04', 4, '', 0, 2),
 (9, 18, 0, '2010-04-22 10:57:55', 2, 'foo', 0, 2),
-(10, 19, 0, '2010-04-22 15:25:58', 1, '', 0, 1),
+(18, 19, 1, '2010-04-24 21:54:39', 3, 'assigned this bug to Ram Kumar', 1, 1),
 (11, 20, 0, '2010-04-23 19:38:13', 1, '', 0, 1),
-(12, 21, 0, '2010-04-23 20:17:08', 2, '', 0, 2);
+(12, 21, 0, '2010-04-23 20:17:08', 2, '', 0, 2),
+(13, 19, 1, '2010-04-24 21:34:49', 1, 'fsdfsdf', 0, 1),
+(14, 19, 1, '2010-04-24 21:34:56', 1, 'dkflsfsdf', 0, 1),
+(15, 19, 1, '2010-04-24 21:35:36', 1, 'sdfvsdfds', 1, 1),
+(16, 19, 1, '2010-04-24 21:37:51', 2, 'Just started working on the bug', 0, 1),
+(17, 19, 1, '2010-04-24 21:39:02', 3, 'Just fixed :D', 0, 1),
+(19, 19, 1, '2010-04-24 22:47:31', 1, 'opens again...', 1, 1),
+(20, 15, 1, '2010-04-24 23:29:57', 1, 'still not fixed', 1, 2),
+(21, 19, 1, '2010-04-25 11:17:38', 1, 'Created by Ram Kumar at 2010-04-22 15:25:58 affects version 1.0  and the project gedit  Keywords check\r\nBug history\r\nRev. id  Status  Priority  Revised by  Assigned to  Updated on #1  open  Low  Ram Kumar  no one  2010-04-24 21:34:49\r\nRam Kumar says: fsdfsdf\r\n#2  open  Low  Ram Kumar  no one', 1, 1),
+(22, 19, 1, '2010-04-25 11:22:21', 1, '<a href="google.com">foo</a>', 1, 1),
+(23, 19, 1, '2010-04-25 11:22:33', 1, '</div>', 1, 1),
+(24, 19, 1, '2010-04-25 11:22:43', 1, '<div>', 1, 1),
+(25, 19, 2, '2010-04-25 14:20:23', 2, 'No I will take care of the issue.', 2, 2);
 
 -- --------------------------------------------------------
 
@@ -82,7 +94,7 @@ INSERT INTO `bugs` (`id`, `bugName`, `description`, `affectedVersion`, `project`
 (11, 'sjdhj', 'kjhsdkj', 'kshjf', 1, 1, 1, 'djfhl', 0, '2010-04-22 00:18:19'),
 (12, 'sjdhj', 'kjhsdkj', 'kshjf', 1, 1, 1, 'djfhl', 0, '2010-04-22 00:18:23'),
 (18, 'Maximize button not working', 'In project ABC, maximize button fails to work on linux.', '1.4, 1.5', 2, 3, 2, 'usability', 0, '2010-04-22 10:57:55'),
-(19, 'win7', 'graphics', '1.0', 2, 2, 2, 'check', 0, '2010-04-22 15:25:58'),
+(19, 'win7', 'graphics', '1.0', 2, 2, 2, 'check', 1, '2010-04-22 15:25:58'),
 (20, 'Testfoo bug', 'Foo bar foo', '1.4, 1.5', 1, 1, 1, 'foo, bar', 0, '2010-04-23 19:38:12'),
 (21, 'Foo bar', 'foo foo bar bar', '1.34', 2, 1, 2, 'foo, bar', 0, '2010-04-23 20:17:08');
 
@@ -186,12 +198,12 @@ CREATE TABLE IF NOT EXISTS `users` (
   `email` varchar(500) NOT NULL DEFAULT 'none',
   `is_admin` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `name`, `email`, `is_admin`) VALUES
-(1, 'user1', '5f4dcc3b5aa765d61d8327deb882cf99', 'Ram Kumar', 'ram_kumar@yahoo.com', 0);
-
+(1, 'user1', '5f4dcc3b5aa765d61d8327deb882cf99', 'Ram Kumar', 'ram_kumar@yahoo.com', 0),
+(2, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'Administrator', 'admin@company.com', 1);
