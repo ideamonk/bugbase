@@ -1,0 +1,53 @@
+<div id='contentSpacer'>
+	<h2>Bug<sup>Base</sup> Administration</h2>
+	<hr /> <br />
+	<div id='leftBox'>
+		<div class='welcomeReport'>
+			<h3>Statuses</h3>
+			{section name=i loop=$statuses}
+				<p>{$statuses[i].label}</p>
+			{/section}
+			<div>
+				<form action='' method='post'>
+					<input type='text' name='label'/>
+					<button type='submit'>+</button>
+				</form>
+			</div>
+		</div>
+		<br />
+		<div class='welcomeReport'>
+			<h3>Categories</h3>
+			{section name=i loop=$categories}
+				<p>{$categories[i].label}</p>
+			{/section}
+			<div>
+				<form action='' method='post'>
+					<input type='text' name='label'/>
+					<button type='submit'>+</button>
+				</form>
+			</div>
+		</div>
+		
+	</div>
+	<div id='rightBox'>
+		<div class='welcomeReport'>
+			<h3>Priorities</h3>
+			{section name=i loop=$priorities}
+				<p>{$priorities[i].label}</p>
+			{/section}
+			<div>
+				<form action='' method='post'>
+					<input type='text' name='label'/>
+					<button type='submit'>+</button>
+				</form>
+			</div>
+		</div>
+		<br />
+		<div class='welcomeReport'>
+			<h3>Users</h3>
+			{section name=i loop=$users}
+				<p>{$users[i].name}</p>
+			{/section}
+		</div>
+	</div>
+</div>
