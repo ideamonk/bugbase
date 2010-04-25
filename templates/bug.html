@@ -48,7 +48,7 @@
 						<li class='h_comment'>
 							<p>
 								<span class='bluebox'>{$bughistory[i].addedBy}</span> says:
-								{$bughistory[i].comment}
+								<span class='h_comment_text'>{$bughistory[i].comment}</span>
 							</p>
 						</li>
 					{/if}
@@ -89,7 +89,7 @@
 								</select>
 							</div>
 							<div class='h_commenter'> <span class='greenbox'>Abhishek</span> </div>
-							<div class='h_owner'>
+							<div class='h_owner'>s
 								<select name='assignedTo'>
 									<option value='0'>no one</option>
 									{section name=i loop=$users}

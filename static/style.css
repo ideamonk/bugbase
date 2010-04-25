@@ -342,3 +342,5 @@ textarea:focus {
 	padding:5px;
 	height:40px;
 }
+
+.h_comment_text { padding:5px; display:block; }

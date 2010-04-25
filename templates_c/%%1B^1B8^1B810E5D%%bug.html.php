@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2010-04-24 21:54:28
+<?php /* Smarty version 2.6.26, created on 2010-04-25 11:21:14
          compiled from bug.html */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'replace', 'bug.html', 39, false),)), $this); ?>
@@ -92,8 +92,8 @@ $this->_sections['i']['last']       = ($this->_sections['i']['iteration'] == $th
 							<p>
 								<span class='bluebox'><?php echo $this->_tpl_vars['bughistory'][$this->_sections['i']['index']]['addedBy']; ?>
 </span> says:
-								<?php echo $this->_tpl_vars['bughistory'][$this->_sections['i']['index']]['comment']; ?>
-
+								<span class='h_comment_text'><?php echo $this->_tpl_vars['bughistory'][$this->_sections['i']['index']]['comment']; ?>
+</span>
 							</p>
 						</li>
 					<?php endif; ?>
@@ -186,7 +186,7 @@ $this->_sections['i']['last']       = ($this->_sections['i']['iteration'] == $th
 								</select>
 							</div>
 							<div class='h_commenter'> <span class='greenbox'>Abhishek</span> </div>
-							<div class='h_owner'>
+							<div class='h_owner'>s
 								<select name='assignedTo'>
 									<option value='0'>no one</option>
 									<?php unset($this->_sections['i']);
