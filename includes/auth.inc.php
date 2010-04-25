@@ -1,6 +1,6 @@
 <?php
 session_start();
-@header("Cache-control: private");
+//header("Cache-control: private");
 
 function resetSession(){
 	// clears up any stored session data

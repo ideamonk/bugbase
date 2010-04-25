@@ -23,4 +23,3 @@ function getCurrentUid(){
 	return $_SESSION['user_id'];
 }
 ?>
-
