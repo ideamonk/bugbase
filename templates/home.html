@@ -23,56 +23,32 @@
     <div id='rightBox'>
         <div class='welcomeReport'>
             <h2>Activity</h2>
-            <div class='activityBox'>
+            <div class='activityBox' style='background:#fff;'>
                 <h3>Today</h3>
                 <ul>
-                    <li>
-                        Feature #4342 (closed) by Abhishek
-                    </li>
-                    <li>
-                        Bug #342 (commented) by Mrigank
-                        <br />
-                        <small> lorem ipsum dolor bla bla</small>
-                    </li>
+					{section name=i loop=$bugsToday}
+						<li>
+							<a href="/index.php?page=bug&bug_id={$bugsToday[i].bug_id}">
+								#{$bugsToday[i].bug_id}
+							</a> by <span class='bluebox'><small>{$bugsToday[i].addedBy}</small></span>
+							<small><i>{$bugsToday[i].timestamp|date_format:'%H:%M %p'}</i> 
+							<br />
+							{$bugsToday[i].comment|truncate:100:"..."|escape}</small>
+						</li>
+					{/section}
                 </ul>
             </div>
-            <div>
-                <h3>Last week</h3>
+            <div class='activityBox' style='background:#fff;'>
+                <h3>Previously</h3>
                 <ul>
-                    <li>
-                        Feature #4342 (closed) by Abhishek
-                    </li>
-                    <li>
-                        Bug #342 (commented) by Mrigank
-                        <br />
-                        <small> lorem ipsum dolor bla bla</small>
-                    </li>
-                </ul>
-            </div>
-            <div>
-                <h3>Last week</h3>
-                <ul>
-                    <li>
-                        Feature #4342 (closed) by Abhishek
-                    </li>
-                    <li>
-                        Bug #342 (commented) by Mrigank
-                        <br />
-                        <small> lorem ipsum dolor bla bla</small>
-                    </li>
-                </ul>
-            </div>
-            <div>
-                <h3>Last week</h3>
-                <ul>
-                    <li>
-                        Feature #4342 (closed) by Abhishek
-                    </li>
-                    <li>
-                        Bug #342 (commented) by Mrigank
-                        <br />
-                        <small> lorem ipsum dolor bla bla</small>
-                    </li>
+                    {section name=i loop=$bugsOld}
+						<li>
+							<a href="/index.php?page=bug&bug_id={$bugsToday[i].bug_id}">
+								#{$bugsOld[i].bug_id}
+							</a> by <span class='bluebox'><small>{$bugsOld[i].addedBy}</small></span>
+							<small><i>{$bugsOld[i].timestamp}</i> - {$bugsOld[i].comment|truncate:100:"..."|escape}</small>
+						</li>
+					{/section}
                 </ul>
             </div>
         </div>

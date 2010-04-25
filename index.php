@@ -43,6 +43,8 @@ switch ($page){
 			$smarty->assign('my_open_count', getMyBugCount('open'));
 			$smarty->assign('my_fixed_count', getMyBugCount('fixed'));
 			$smarty->assign('last10', last10bugs());
+			$smarty->assign('bugsToday', bugsToday());
+			$smarty->assign('bugsOld', bugsOld());
 			$_SESSION['currentpage']='home';
 		}
 		break;

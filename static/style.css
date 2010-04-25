@@ -145,6 +145,8 @@ body {
 }
 .welcomeReport ul li{ margin-left:40px; }
 
+.activityBox ul li { list-style:none; padding:10px; background:#efefff; margin:4px; border-radius:5px; }
+
 /* Reusable components */
 input:focus {
 	background:#FFFFBB;

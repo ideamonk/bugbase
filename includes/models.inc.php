@@ -276,3 +276,37 @@ function last10bugs(){
 	$result = mysql_query($query);
 	return getArrayFromResult($result);
 }
+
+function bugsToday(){
+	$query = "SELECT * FROM bughistory WHERE timestamp >= concat( DATE_SUB(curdate(), interval weekday(DATE_SUB(CURDATE(), INTERVAL 6 DAY)) DAY), ' 00:00:00') limit 20;";
+	$result = mysql_query($query);
+	$today = getArrayFromResult($result);
+	
+	// augument the array with usernames		// these things should be more generic... reusable... etc
+	for ($i=0; $i<count($today); $i++){
+		$query = "SELECT * from users where id={$today[$i]['addedBy']};";
+		$result = mysql_query($query);
+		if ($user = mysql_fetch_assoc($result)){
+			$today[$i]['addedBy'] = $user['name'];
+		}
+	}
+	
+	return $today;
+}
+
+function bugsOld(){
+	$query = "SELECT * FROM bughistory WHERE timestamp < concat( DATE_SUB(curdate(), interval weekday(DATE_SUB(CURDATE(), INTERVAL 6 DAY)) DAY), ' 00:00:00') limit 10;";
+	$result = mysql_query($query);
+	$old = getArrayFromResult($result);
+	
+	// augument the array with usernames
+	for ($i=0; $i<count($old); $i++){
+		$query = "SELECT * from users where id={$old[$i]['addedBy']};";
+		$result = mysql_query($query);
+		if ($user = mysql_fetch_assoc($result)){
+			$old[$i]['addedBy'] = $user['name'];
+		}
+	}
+	
+	return $old;
+}
