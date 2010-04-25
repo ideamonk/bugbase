@@ -42,6 +42,7 @@ switch ($page){
 			$smarty->assign('subtitle', 'Home');
 			$smarty->assign('my_open_count', getMyBugCount('open'));
 			$smarty->assign('my_fixed_count', getMyBugCount('fixed'));
+			$smarty->assign('my_active_count', getMyBugCount('in progress'));
 			$smarty->assign('last10', last10bugs());
 			$smarty->assign('bugsToday', bugsToday());
 			$smarty->assign('bugsOld', bugsOld());
@@ -102,6 +103,11 @@ switch ($page){
 					$smarty->assign('subtitle','Bugs fixed by you');
 					$smarty->assign('buglist_heading', 'Bugs fixed by you');
 					$smarty->assign('buglist',getMyFixedBugList());
+					break;
+				case 'self_working':
+					$smarty->assign('subtitle','You\'re currently working on these');
+					$smarty->assign('buglist_heading', 'Bugs being fixed by you');
+					$smarty->assign('buglist',getMyWorkingBugList());
 					break;
 			}
 		}

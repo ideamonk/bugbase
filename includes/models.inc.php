@@ -177,6 +177,21 @@ function getMyOpenBugList(){
 	return $filtered;
 }
 
+function getMyWorkingBugList(){
+	$user_id = $_SESSION['user_id'];
+	$filtered_query = "SELECT * FROM `bugs` where id in (select bug_id from bughistory where assignedTo = {$user_id} and status in (select id from statuses where label='in progress') group by bug_id having max(id)) order by createdAt desc;";
+	$rows = getAllBugList($filtered_query);
+	// TODO: fix the above WRONG query into actually resulting open bugs for user or redeign the schema to suit the purpose ... ho did someone from Yahoo say that filtering out stuff in php rather than in mysql improves speed... who was it !? bluesmoon?
+	$filtered = array();
+	$fi = 0;
+	for ($i=0; $i < count($rows); $i++){
+		if ($rows[$i]['status'] == 'open'){
+			$filtered[$fi++] = $rows[$i];
+		}
+	}
+	return $filtered;
+}
+
 function getProjectList(){
 	$projectlist = array();
 	$index = 0;

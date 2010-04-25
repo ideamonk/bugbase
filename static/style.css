@@ -137,6 +137,9 @@ body {
 .welcomeReport .userOpen{
 	background: #FCF0AE;
 }
+.welcomeReport .userWork{
+	background: #CCEBFC;
+}
 .welcomeReport .userClose{
 	background: #CBFFAF;
 }
