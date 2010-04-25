@@ -109,6 +109,11 @@ switch ($page){
 					$smarty->assign('buglist_heading', 'Bugs being fixed by you');
 					$smarty->assign('buglist',getMyWorkingBugList());
 					break;
+				case 'project':
+					$smarty->assign('subtitle','Bugs related to project');
+					$smarty->assign('buglist_heading', "Open Bugs for project #{$_GET['project_id']}");
+					$smarty->assign('buglist',getProjectOpenBugs($_GET['project_id']));
+					break;
 			}
 		}
 		// hilighting is common to all

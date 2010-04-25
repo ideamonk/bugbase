@@ -177,6 +177,21 @@ function getMyOpenBugList(){
 	return $filtered;
 }
 
+function getProjectOpenBugs(){
+	$project_id = $_GET['project_id'];
+	$filtered_query = "SELECT * FROM `bugs` where project = {$project_id} and id in (select bug_id from bughistory where status in (select id from statuses where label='open') group by bug_id having max(id)) order by createdAt desc;";
+	$rows = getAllBugList($filtered_query);
+	// TODO: fix the above WRONG query into actually resulting open bugs for user or redeign the schema to suit the purpose ... ho did someone from Yahoo say that filtering out stuff in php rather than in mysql improves speed... who was it !? bluesmoon?
+	$filtered = array();
+	$fi = 0;
+	for ($i=0; $i < count($rows); $i++){
+		if ($rows[$i]['status'] == 'open'){
+			$filtered[$fi++] = $rows[$i];
+		}
+	}
+	return $filtered;
+}
+
 function getMyWorkingBugList(){
 	$user_id = $_SESSION['user_id'];
 	$filtered_query = "SELECT * FROM `bugs` where id in (select bug_id from bughistory where assignedTo = {$user_id} and status in (select id from statuses where label='in progress') group by bug_id having max(id)) order by createdAt desc;";
@@ -201,10 +216,13 @@ function getProjectList(){
 	
 	while ($row = mysql_fetch_assoc($result)){
 		// augument a row with open bugs count
-		$query2 = "SELECT count(*) FROM `bugs` where project = '{$row['id']}' and id in (select bug_id from bughistory where status in (select id from statuses where label='open') group by bug_id having max(id)) order by createdAt desc;";
-		$result2 = mysql_query($query2);
-		if ($row2 = mysql_fetch_array($result2)){
-			$row['open_count'] = $row2[0];
+		$query2 = "SELECT * FROM `bugs` where project = '{$row['id']}' and id in (select bug_id from bughistory where status in (select id from statuses where label='open') group by bug_id having max(id)) order by createdAt desc;";
+		$rows2 =  getAllBugList($query2);
+		$row['open_count'] = 0;
+		foreach($rows2 as $row2){
+			if ($row2['status'] == 'open'){
+				$row['open_count']++;
+			}
 		}
 		
 		// augument a row with project owner name
