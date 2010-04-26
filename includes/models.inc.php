@@ -311,7 +311,7 @@ function last10bugs(){
 }
 
 function bugsToday(){
-	$query = "SELECT * FROM bughistory WHERE timestamp >= concat( DATE_SUB(curdate(), interval weekday(DATE_SUB(CURDATE(), INTERVAL 6 DAY)) DAY), ' 00:00:00') order by id desc limit 20;";
+	$query = "SELECT * FROM bughistory WHERE timestamp >= concat( DATE_SUB(curdate(), interval weekday(DATE_SUB(CURDATE(), INTERVAL 6 DAY)) DAY), ' 00:00:00') order by id desc limit 10;";
 	$result = mysql_query($query);
 	$today = getArrayFromResult($result);
 	
