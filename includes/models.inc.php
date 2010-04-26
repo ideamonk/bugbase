@@ -305,13 +305,13 @@ function addBugHistory(){
 }
 
 function last10bugs(){
-	$query = "SELECT * from bughistory where addedBy = {$_SESSION['user_id']} order by id desc limit 10;";
+	$query = "SELECT * from bughistory where addedBy = {$_SESSION['user_id']} order by id desc limit 15;";
 	$result = mysql_query($query);
 	return getArrayFromResult($result);
 }
 
 function bugsToday(){
-	$query = "SELECT * FROM bughistory WHERE timestamp >= concat( DATE_SUB(curdate(), interval weekday(DATE_SUB(CURDATE(), INTERVAL 6 DAY)) DAY), ' 00:00:00') order by id desc limit 10;";
+	$query = "SELECT * FROM bughistory WHERE timestamp >= concat( DATE_SUB(curdate(), interval weekday(DATE_SUB(CURDATE(), INTERVAL 6 DAY)) DAY), ' 00:00:00') order by id desc limit 7;";
 	$result = mysql_query($query);
 	$today = getArrayFromResult($result);
 	
