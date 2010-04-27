@@ -233,13 +233,20 @@ switch ($page){
 			break;
 		
 		case 'regUser':
-			$result = regUser();
-			if ($result == 'exists') {
-				$smarty->assign('reg_error', 'Oops! that username exists already');
-			} else if ($result == 'error') {
-				$smarty->assign('reg_error', 'Oops! something was incomplete');
-			} else {
-				$smarty->assign('reg_success', "Username created, log in as {$_POST['username']} now");
+			if (isset($_POST['username'])){
+				if (strlen($_POST['username']) > 3 && strlen($_POST['name']) > 3 && strlen($_POST['password']) > 3){
+					// reg data is valid
+					$result = regUser();
+					if ($result == 'exists') {
+						$smarty->assign('reg_error', 'Oops! that username exists already');
+					} else if ($result == 'error') {
+						$smarty->assign('reg_error', 'Oops! something was incomplete');
+					} else {
+						$smarty->assign('reg_success', "Username created, log in as {$_POST['username']} now");
+					}
+				} else {
+					$smarty->assign('reg_error', 'You did not give adequate data to register.');
+				}
 			}
 			break;
 			
@@ -248,7 +255,7 @@ switch ($page){
 			header("Location: /index.php?page=home");
 }
 
-session_to_smarty($smarty);							// move all session data to be available in views
+session_to_smarty($smarty);						// move all session data to be available in views
 $smarty->display('header.html');				// concatenate other common parts together
 $smarty->display($template);
 $smarty->display('footer.html');

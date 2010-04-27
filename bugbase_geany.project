@@ -12,5 +12,19 @@ base_path=/home/ideamonk/Code/bugbase/
 make_in_base_path=false
 
 [files]
-current_page=0
+current_page=10
 FILE_NAME_0=0;PHP;0;16;1;1;0;/home/ideamonk/Code/bugbase/index.php;0
+FILE_NAME_1=0;HTML;0;16;1;1;0;/home/ideamonk/Code/bugbase/templates/login.html;0
+FILE_NAME_2=0;HTML;0;16;1;1;0;/home/ideamonk/Code/bugbase/templates/admin.html;0
+FILE_NAME_3=0;HTML;0;16;1;1;0;/home/ideamonk/Code/bugbase/templates/header.html;0
+FILE_NAME_4=0;HTML;0;16;1;1;0;/home/ideamonk/Code/bugbase/templates/projectlist.html;0
+FILE_NAME_5=0;HTML;0;16;1;1;0;/home/ideamonk/Code/bugbase/templates/home.html;0
+FILE_NAME_6=0;HTML;0;16;1;1;0;/home/ideamonk/Code/bugbase/templates/bug.html;0
+FILE_NAME_7=0;HTML;0;16;1;1;0;/home/ideamonk/Code/bugbase/templates/addedit.html;0
+FILE_NAME_8=0;HTML;0;16;1;1;0;/home/ideamonk/Code/bugbase/templates/buglist.html;0
+FILE_NAME_9=0;HTML;0;16;1;1;0;/home/ideamonk/Code/bugbase/templates/footer.html;0
+FILE_NAME_10=11390;PHP;0;16;1;1;0;/home/ideamonk/Code/bugbase/includes/models.inc.php;0
+FILE_NAME_11=0;PHP;0;16;1;1;0;/home/ideamonk/Code/bugbase/includes/auth.inc.php;0
+FILE_NAME_12=0;PHP;0;16;1;1;0;/home/ideamonk/Code/bugbase/includes/helpers.inc.php;0
+FILE_NAME_13=0;PHP;0;16;1;1;0;/home/ideamonk/Code/bugbase/includes/db.inc.php;0
+FILE_NAME_14=0;CSS;0;16;1;1;0;/home/ideamonk/Code/bugbase/static/style.css;0
