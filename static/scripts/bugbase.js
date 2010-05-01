@@ -14,9 +14,8 @@ $(document).ready( function(){
 	var h1=$('#leftBox').height();
 	var h2=$('#rightBox').height();
 	var maxHeight = (h1>h2 ? h1:h2);
-	if (maxHeight > 100){
-		$('#contentSpacer').height(maxHeight+100);
-	}
+	$('#content').height(maxHeight+120);
+	$('#contentSpacer').height(maxHeight+80);
 } );
 
 
