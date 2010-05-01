@@ -10,6 +10,8 @@ indent_mode=2
 name=BugBase
 base_path=/home/ideamonk/Code/bugbase/
 make_in_base_path=false
+description=
+run_cmd=
 
 [files]
 current_page=10

@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2010-04-26 03:40:09
+<?php /* Smarty version 2.6.26, created on 2010-04-29 09:42:41
          compiled from login.html */ ?>
   <div id='leftBox'>
     <div class='boxContent'>

@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2010-04-26 02:43:14
+<?php /* Smarty version 2.6.26, created on 2010-05-01 10:21:50
          compiled from header.html */ ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -53,6 +53,8 @@ $this->_sections['i']['last']       = ($this->_sections['i']['iteration'] == $th
 </head>
 
 <body>
+<a href="http://github.com/ideamonk/bugbase"><img style="position: absolute; top: 0; left: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_left_red_aa0000.png" alt="Fork me on GitHub" /></a>
+
 <div id='wrapper'>
   <div id='headarea'>
     <div id='topmenu'>
