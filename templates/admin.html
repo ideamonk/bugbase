@@ -47,7 +47,7 @@
 			<h3>Users</h3>
 			{section name=i loop=$users}
 			{if $users[i].is_admin != '1'}
-				<p>{$users[i].name} <span><a href="javascript:showWarning('#aa{$smarty.section.i.index}', '/index.php?page=delUser&uid={$users[i].id}')" id='aa{$smarty.section.i.index}' >del</a></span></p>
+				<p>{$users[i].name} <span><a href="#" onClick="showWarning('#aa{$smarty.section.i.index}', '/index.php?page=delUser&uid={$users[i].id}')" id='aa{$smarty.section.i.index}' >del</a></span></p>
 			{/if}
 			{/section}
 		</div>
