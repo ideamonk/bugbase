@@ -21,7 +21,7 @@
         { /if }
         <button type='submit'> Login </button>
         <span>
-          <a href='javascript:$("#regForm").show("medium");$("#loginForm").hide()' title="Don't have an account? Just create one.">Register new account</a>
+          <a href="#" onClick='$("#regForm").show("medium");$("#loginForm").hide()' title="Don't have an account? Just create one.">Register new account</a>
         </span>
       </form>
       
@@ -37,7 +37,7 @@
         <input type='text' name='email'/>
         <button type='submit'> Register </button>
         <span>
-          <a href='javascript:$("#regForm").hide("fast");$("#loginForm").show("medium")'>hide</a>
+          <a href="#" onClick="javascript:$('#regForm').hide('fast');$('#loginForm').show('medium')">hide</a>
         </span>
       </form>
       { if isset($reg_error) }

@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2010-05-01 10:38:36
+<?php /* Smarty version 2.6.26, created on 2010-05-22 19:29:13
          compiled from login.html */ ?>
   <div id='leftBox'>
     <div class='boxContent'>
@@ -24,7 +24,7 @@
         <?php endif; ?>
         <button type='submit'> Login </button>
         <span>
-          <a href='javascript:$("#regForm").show("medium");$("#loginForm").hide()' title="Don't have an account? Just create one.">Register new account</a>
+          <a href="#" onClick='$("#regForm").show("medium");$("#loginForm").hide()' title="Don't have an account? Just create one.">Register new account</a>
         </span>
       </form>
       
@@ -40,7 +40,7 @@
         <input type='text' name='email'/>
         <button type='submit'> Register </button>
         <span>
-          <a href='javascript:$("#regForm").hide("fast");$("#loginForm").show("medium")'>hide</a>
+          <a href="#" onClick="javascript:$('#regForm').hide('fast');$('#loginForm').show('medium')">hide</a>
         </span>
       </form>
       <?php if (isset ( $this->_tpl_vars['reg_error'] )): ?>
